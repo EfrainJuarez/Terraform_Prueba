@@ -7,19 +7,25 @@ terraform {
   }
 }
 
+variable "grafana_stack_url" {
+  description = "The URL of the Grafana stack"
+  type        = string
+  default     = ""
+}
+
 provider "grafana" {
   alias = "cloud"
-  # Grafana Cloud URL
-  # url = "https://grafana.com"
-  # Grafana Cloud API key
+  url  = var.grafana_stack_url
+  #auth
 }
 
 # Define the list of folders you want to create in Grafana
 variable "folders" {
   description = "List of folders to create in Grafana"
   type        = list(string)
-  default     = ["DIWA", "ZEUS"]
+  default     = ["DIWA"]
 }
+
 
 # Define the list of dashboard types to create in Grafana
 variable "dashboard_types" {
@@ -264,6 +270,7 @@ resource "grafana_dashboard" "overview_dashboards" {
       uid_operation = "${lower(folder)}operation"
       operation_name = "${lower(folder)}-operations-details"
       overview_name  = "${folder}-overview"
+
     }
   }
 
@@ -288,6 +295,7 @@ resource "grafana_dashboard" "overview_dashboards" {
     operation_dashboard_uid    = each.value.uid_operation,
     operation_dashboard_name   = each.value.operation_name
     overview_name              = each.value.overview_name
+    grafana_url   = var.grafana_stack_url
   })
 }
 
@@ -331,6 +339,7 @@ resource "grafana_dashboard" "traces_dashboards" {
     jvm_dashboard_name      = each.value.jvm_name,
     errors_dashboard_uid    = each.value.uid_errors,
     errors_dashboard_name   = each.value.errors_name
+    grafana_url   = var.grafana_stack_url
   })
 }
 
@@ -374,6 +383,7 @@ resource "grafana_dashboard" "logs_dashboards" {
     jvm_dashboard_name      = each.value.jvm_name,
     errors_dashboard_uid    = each.value.uid_errors,
     errors_dashboard_name   = each.value.errors_name
+    grafana_url   = var.grafana_stack_url
   })
 }
 
@@ -417,6 +427,7 @@ resource "grafana_dashboard" "service_map_dashboards" {
     jvm_dashboard_name      = each.value.jvm_name,
     errors_dashboard_uid    = each.value.uid_errors,
     errors_dashboard_name   = each.value.errors_name
+    grafana_url   = var.grafana_stack_url
   })
 }
 
@@ -460,6 +471,7 @@ resource "grafana_dashboard" "jvm_dashboards" {
     servicemap_dashboard_name = each.value.servicemap_name,
     errors_dashboard_uid    = each.value.uid_errors,
     errors_dashboard_name   = each.value.errors_name
+    grafana_url   = var.grafana_stack_url
   })
 }
 
@@ -503,6 +515,7 @@ resource "grafana_dashboard" "errors_dashboards" {
     servicemap_dashboard_name = each.value.servicemap_name,
     jvm_dashboard_uid       = each.value.uid_jvm,
     jvm_dashboard_name      = each.value.jvm_name
+    grafana_url   = var.grafana_stack_url
   })
 }
 
