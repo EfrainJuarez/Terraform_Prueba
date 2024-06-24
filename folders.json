@@ -1,0 +1,370 @@
+[
+    {
+        "title": "AGEB",
+        "uid": "fddduq6p3q4g0d"
+    },
+    {
+        "title": "Alertas Infraestructura",
+        "uid": "bdhkdkuq4ak1sf"
+    },
+    {
+        "title": "Alertas Infraestructura ML",
+        "uid": "ddhqgy6qg4veob"
+    },
+    {
+        "title": "Alertas Preventivas",
+        "uid": "edmpqw7epoxdsa"
+    },
+    {
+        "title": "Alertas Servicios",
+        "uid": "ddgcesb293rpcc"
+    },
+    {
+        "title": "Alertas Servicios ML",
+        "uid": "edhqmmj6nuzuob"
+    },
+    {
+        "title": "APCS",
+        "uid": "bc9031a6-7def-4225-bf38-fac9f7812c24"
+    },
+    {
+        "title": "APFE",
+        "uid": "addduqxfp3hfkc"
+    },
+    {
+        "title": "APIB",
+        "uid": "ddbea6v1h7fnkb"
+    },
+    {
+        "title": "APIG",
+        "uid": "f86adc34-4632-4462-a8c2-abb92b6d891e"
+    },
+    {
+        "title": "APOQ",
+        "uid": "fdbdy5as41qf4f"
+    },
+    {
+        "title": "APPT",
+        "uid": "cdndox1b9foqod"
+    },
+    {
+        "title": "APSA",
+        "uid": "edddursm6gv7kb"
+    },
+    {
+        "title": "APSY",
+        "uid": "bddduslw9mc5cc"
+    },
+    {
+        "title": "Asserts Dashboards",
+        "uid": "grafana-asserts-app"
+    },
+    {
+        "title": "ATLA",
+        "uid": "adblvfo052io0f"
+    },
+    {
+        "title": "AUTH",
+        "uid": "ddblvf742scg0f"
+    },
+    {
+        "title": "AVOB",
+        "uid": "fddduy2x0sy68f"
+    },
+    {
+        "title": "AVPL",
+        "uid": "cdbeomnojj7k0e"
+    },
+    {
+        "title": "AzureMonitor",
+        "uid": "edig1zoq3cem8d"
+    },
+    {
+        "title": "BADI",
+        "uid": "fdblven8k9728a"
+    },
+    {
+        "title": "BIOM",
+        "uid": "cde2mmzxgz3eoe"
+    },
+    {
+        "title": "BNFC",
+        "uid": "fdblus6y4ngn4b"
+    },
+    {
+        "title": "BSEG",
+        "uid": "eddduytd03u9se"
+    },
+    {
+        "title": "CB2C",
+        "uid": "ddjiyio0voxs0f"
+    },
+    {
+        "title": "CCM1",
+        "uid": "bdddv0a259hxcc"
+    },
+    {
+        "title": "CIAM",
+        "uid": "fdddv33ec6ww0c"
+    },
+    {
+        "title": "CPTC",
+        "uid": "bdddv3x694ao0d"
+    },
+    {
+        "title": "CPTD",
+        "uid": "ddcmpo3wbuhogc"
+    },
+    {
+        "title": "CPTL",
+        "uid": "bde64m66act1cd"
+    },
+    {
+        "title": "CRMC",
+        "uid": "cdbls4f1k8qgwf"
+    },
+    {
+        "title": "CVT FRONTED",
+        "uid": "adkxgvf1aolc0f"
+    },
+    {
+        "title": "Demo",
+        "uid": "bddz811nu0tmoa"
+    },
+    {
+        "title": "Demo Rules",
+        "uid": "bded59s65n3swa"
+    },
+    {
+        "title": "DIWA",
+        "uid": "ddddv52l7igowa"
+    },
+    {
+        "title": "DPCM",
+        "uid": "cdddv774ma5fkb"
+    },
+    {
+        "title": "DPLZ",
+        "uid": "edjiygnw390xsc"
+    },
+    {
+        "title": "ELKP",
+        "uid": "cde64nbtuedxce"
+    },
+    {
+        "title": "EVA0",
+        "uid": "ade2mtsdqqyo0d"
+    },
+    {
+        "title": "FCVE",
+        "uid": "cdddv8pw3d8n4e"
+    },
+    {
+        "title": "FDYE",
+        "uid": "bde2muo9jlam8a"
+    },
+    {
+        "title": "FIEC",
+        "uid": "adblvg764elfke"
+    },
+    {
+        "title": "Frontend",
+        "uid": "bdcw66c5qsw74f"
+    },
+    {
+        "title": "GISP",
+        "uid": "ddblte9h419tsa"
+    },
+    {
+        "title": "GrafanaCloud",
+        "uid": "a6612887-c735-445c-848c-b74ac5c74a38"
+    },
+    {
+        "title": "GRRC",
+        "uid": "bdbj4z3jxb5z4c"
+    },
+    {
+        "title": "Herramientas Service Map",
+        "uid": "ddc0br2nr7y80f"
+    },
+    {
+        "title": "INGESTION",
+        "uid": "cdhdjtttzdkhsb"
+    },
+    {
+        "title": "Integration - Kubernetes",
+        "uid": "integration---kubernetes"
+    },
+    {
+        "title": "KNDC",
+        "uid": "adddv9j6szsowc"
+    },
+    {
+        "title": "LYNX",
+        "uid": "fdddvolvhu7swc"
+    },
+    {
+        "title": "Mainframe",
+        "uid": "b4fb404e-4df7-4261-a532-f9519ed8a542"
+    },
+    {
+        "title": "MBBK",
+        "uid": "ede2mvnd1ojy8e"
+    },
+    {
+        "title": "MCMP",
+        "uid": "adddvqyrz3fggd"
+    },
+    {
+        "title": "NCCM",
+        "uid": "adddvrjxr4npcf"
+    },
+    {
+        "title": "NHBK",
+        "uid": "cde2mw4wf2dj4c"
+    },
+    {
+        "title": "NOCL",
+        "uid": "fdddw4mevn85cf"
+    },
+    {
+        "title": "NREM",
+        "uid": "ddjiyg114pbswd"
+    },
+    {
+        "title": "NTLC",
+        "uid": "adddvs7z0yfpcf"
+    },
+    {
+        "title": "NTOK",
+        "uid": "ddjiyi4vq7fggf"
+    },
+    {
+        "title": "O11Y",
+        "uid": "f6bc84f0-48ba-4aa7-b503-d856dfa41a11"
+    },
+    {
+        "title": "OCPA",
+        "uid": "fdbltsapgirk0b"
+    },
+    {
+        "title": "OCPI",
+        "uid": "cdhq622f67mkgd"
+    },
+    {
+        "title": "OPBK",
+        "uid": "dde2mwn5vaio0d"
+    },
+    {
+        "title": "PEVE",
+        "uid": "aa3eee15-91f6-47f8-91f6-8fca18d102da"
+    },
+    {
+        "title": "POLY",
+        "uid": "edddvt0api96od"
+    },
+    {
+        "title": "POSB",
+        "uid": "bdddvtls7kbuob"
+    },
+    {
+        "title": "PoV Grafana",
+        "uid": "b9f3c0a0-b2ca-4211-8b12-f5db9608cd4d"
+    },
+    {
+        "title": "PPEL",
+        "uid": "c716fce5-04bd-4f56-8366-e02e17a2c9c8"
+    },
+    {
+        "title": "Practica_workshop",
+        "uid": "adfk2y596j30gc"
+    },
+    {
+        "title": "PRCG",
+        "uid": "bde2mx4f6l24gb"
+    },
+    {
+        "title": "PXTI",
+        "uid": "edddvuogsyfpcc"
+    },
+    {
+        "title": "RCCL",
+        "uid": "adll7x715r2tcb"
+    },
+    {
+        "title": "RPYM",
+        "uid": "editxmp9iomwwe"
+    },
+    {
+        "title": "SCRE",
+        "uid": "fdbj4y7fh5jpca"
+    },
+    {
+        "title": "SCRM",
+        "uid": "ddddvwq9lgjk0d"
+    },
+    {
+        "title": "service map",
+        "uid": "a9b47c5a-2626-4577-b235-47b9583fffd9"
+    },
+    {
+        "title": "SFPM",
+        "uid": "cdoiqqk28bi0wc"
+    },
+    {
+        "title": "SHCL",
+        "uid": "edbj4wuyw8gzkf"
+    },
+    {
+        "title": "SOPORTE AGEB",
+        "uid": "admpkurxozhmoa"
+    },
+    {
+        "title": "SRCR",
+        "uid": "cdckvf5fd66m8d"
+    },
+    {
+        "title": "SREC",
+        "uid": "fdbj4xkfxsjr4b"
+    },
+    {
+        "title": "Test Linux",
+        "uid": "ddlc2kpa4mo74c"
+    },
+    {
+        "title": "TESTB",
+        "uid": "fdj4bbsoxl5hcf"
+    },
+    {
+        "title": "TMAA",
+        "uid": "ddddvzeo3nrwge"
+    },
+    {
+        "title": "TTIB",
+        "uid": "adddvzyxa0pogc"
+    },
+    {
+        "title": "VEDI",
+        "uid": "cdddw0ie3162oc"
+    },
+    {
+        "title": "WISE",
+        "uid": "fdddw135gdl34d"
+    },
+    {
+        "title": "Workshop",
+        "uid": "fdeabdtx1hfy8f"
+    },
+    {
+        "title": "WRDA",
+        "uid": "edddw1nr981s0a"
+    },
+    {
+        "title": "XT21",
+        "uid": "bdddw3klfhji8c"
+    },
+    {
+        "title": "ZEUS",
+        "uid": "ddddw3y6t3e9sa"
+    }
+]
