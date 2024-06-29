@@ -18,7 +18,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 441,
+  "id": 1257,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -52,7 +52,8 @@
               "type": "sparkline"
             },
             "filterable": true,
-            "inspect": true
+            "inspect": true,
+            "minWidth": 100
           },
           "mappings": [],
           "thresholds": {
@@ -84,6 +85,10 @@
               {
                 "id": "unit",
                 "value": "reqps"
+              },
+              {
+                "id": "custom.width",
+                "value": 250
               }
             ]
           },
@@ -116,6 +121,10 @@
               {
                 "id": "unit",
                 "value": "ms"
+              },
+              {
+                "id": "custom.width",
+                "value": 250
               }
             ]
           },
@@ -132,6 +141,10 @@
               {
                 "id": "unit",
                 "value": "percentunit"
+              },
+              {
+                "id": "custom.width",
+                "value": 250
               }
             ]
           },
@@ -157,7 +170,7 @@
                   {
                     "targetBlank": true,
                     "title": "More details",
-                    "url": "d/${uid_overview}/${overview_name}?orgId=1&var-job=$${__data.fields.job}&var-service=$${__data.fields.servicios}&var-namespace=$${__data.fields.namespace}"
+                    "url": "d/${overview_dashboard_uid}/${overview_dashboard_name}?orgId=1&var-job=$${__data.fields.job}&var-service=$${__data.fields.servicios}&var-namespace=$${__data.fields.namespace}&$${__url_time_range}"
                   }
                 ]
               }
@@ -228,6 +241,10 @@
                     "type": "range"
                   }
                 ]
+              },
+              {
+                "id": "custom.width",
+                "value": 250
               }
             ]
           }
@@ -260,7 +277,7 @@
           }
         ]
       },
-      "pluginVersion": "11.2.0-72125",
+      "pluginVersion": "11.2.0-72343",
       "targets": [
         {
           "datasource": {
@@ -269,7 +286,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "code",
-          "expr": "histogram_quantile(0.95, sum by(le, job) (rate({__name__=~\"traces_spanmetrics_latency_bucket\", span_kind=~\"SPAN_KIND_SERVER|SPAN_KIND_CONSUMER\", deployment_environment=~\".*\"}[$__rate_interval])))",
+          "expr": "label_replace(histogram_quantile(0.95, sum by(le, job) (rate(traces_spanmetrics_latency_bucket{span_kind=~\"SPAN_KIND_SERVER|SPAN_KIND_CONSUMER\", deployment_environment=~\".*\"}[$__rate_interval]))), \"namespace\", \"$1\", \"job\", \"^^(.*?)/(.*)$\")",
           "format": "time_series",
           "fullMetaSearch": false,
           "hide": false,
@@ -287,7 +304,7 @@
             "uid": "$${promds}"
           },
           "editorMode": "code",
-          "expr": "label_replace(label_replace(sum(increase({__name__=~\"traces_spanmetrics_latency_sum\"}[$__range])) by (job) / sum(increase({__name__=~\"traces_spanmetrics_latency_count\"}[$__range])) by (job), \"servicios\", \"$1\", \"job\", \".*/([^/]+)$\"), \"namespace\", \"$1\", \"job\", \"^^(.*?)/(.*)$\")",
+          "expr": "sum(increase(traces_spanmetrics_latency_sum[$__range])) by (job) / sum(increase(traces_spanmetrics_latency_count[$__range])) by (job)",
           "hide": false,
           "instant": false,
           "interval": "5m",
@@ -302,7 +319,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "code",
-          "expr": "(sum(rate({__name__=~\"traces_spanmetrics_latency_count\",span_kind=~\"SPAN_KIND_SERVER|SPAN_KIND_CONSUMER\", deployment_environment=~\".*\", status_code=\"STATUS_CODE_ERROR\"} [$__rate_interval])) by (job) OR sum(rate({__name__=~\"traces_spanmetrics_latency_count\",span_kind=~\"SPAN_KIND_SERVER|SPAN_KIND_CONSUMER\", deployment_environment=~\".*\"} [$__rate_interval])) by (job) * 0) / sum(rate({__name__=~\"traces_spanmetrics_latency_count\",span_kind=~\"SPAN_KIND_SERVER|SPAN_KIND_CONSUMER\", deployment_environment=~\".*\"} [$__rate_interval])) by (job)",
+          "expr": "(sum(rate(traces_spanmetrics_latency_count{span_kind=~\"SPAN_KIND_SERVER|SPAN_KIND_CONSUMER\", deployment_environment=~\".*\", status_code=\"STATUS_CODE_ERROR\"} [$__rate_interval])) by (job) OR sum(rate(traces_spanmetrics_latency_count{span_kind=~\"SPAN_KIND_SERVER|SPAN_KIND_CONSUMER\", deployment_environment=~\".*\"} [$__rate_interval])) by (job) * 0) / sum(rate(traces_spanmetrics_latency_count{span_kind=~\"SPAN_KIND_SERVER|SPAN_KIND_CONSUMER\", deployment_environment=~\".*\"} [$__rate_interval])) by (job)",
           "format": "time_series",
           "fullMetaSearch": false,
           "hide": false,
@@ -321,7 +338,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "code",
-          "expr": "sum by(job) (rate({__name__=~\"traces_spanmetrics_latency_count\",span_kind=~\"SPAN_KIND_SERVER|SPAN_KIND_CONSUMER\", deployment_environment=~\".*\"}[$__rate_interval]))",
+          "expr": "label_replace(sum by(job) (rate(traces_spanmetrics_latency_count{span_kind=~\"SPAN_KIND_SERVER|SPAN_KIND_CONSUMER\", deployment_environment=~\".*\"}[$__rate_interval])), \"servicios\", \"$1\", \"job\", \".*/([^/]+)$\")",
           "format": "time_series",
           "fullMetaSearch": false,
           "hide": false,
@@ -390,8 +407,8 @@
       {
         "current": {
           "selected": false,
-          "text": "Cloud Prometheus: ageb-cer-ageb_token",
-          "value": "adfnehrm5v08wb"
+          "text": "Cloud Prometheus: ciam-cer-ciam_token",
+          "value": "edfnkmt7ndurka"
         },
         "hide": 2,
         "includeAll": false,
@@ -401,14 +418,14 @@
         "query": "prometheus",
         "queryValue": "",
         "refresh": 1,
-        "regex": "/${datasource}.*/",
+        "regex": "/^Cloud Prometheus: ciam/",
         "skipUrlSync": false,
         "type": "datasource"
       },
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "$${promds}"
+          "uid": "${datasource}"
         },
         "filters": [],
         "hide": 0,
@@ -419,11 +436,13 @@
     ]
   },
   "time": {
-    "from": "now-7d",
+    "from": "now-24h",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "${dashboard_title}",
+  "uid": "${uid}",
+  "version": 2,
   "weekStart": ""
 }

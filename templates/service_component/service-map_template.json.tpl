@@ -18,7 +18,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 449,
+  "id": 1265,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -33,17 +33,17 @@
         "x": 0,
         "y": 0
       },
-      "id": 14,
+      "id": 8,
       "options": {
         "code": {
           "language": "typescript",
           "showLineNumbers": false,
           "showMiniMap": false
         },
-        "content": "<h1> $${job} </h1>",
+        "content": "<h1> $${job}</h1>",
         "mode": "html"
       },
-      "pluginVersion": "11.1.0-71799",
+      "pluginVersion": "11.2.0-72343",
       "targets": [
         {
           "datasource": {
@@ -70,17 +70,17 @@
         "x": 0,
         "y": 2
       },
-      "id": 15,
+      "id": 9,
       "options": {
         "code": {
           "language": "plaintext",
           "showLineNumbers": false,
           "showMiniMap": false
         },
-        "content": "<h3><a href=\"https://bcpdesa.grafana.net/d/${uid_overview}/${overview_name}?orgId=1&var-job=$${job}&var-service=$${service}&var-namespace=$${namespace}\" style=\"color: #ffffff;\r\n    text-decoration: none;\">Overview</a></h3>",
+        "content": "<h3><a href=\"${grafana_url}/d/${overview_dashboard_uid}/${overview_dashboard_name}?orgId=1&var-job=$${job}&var-service=$${service}&var-namespace=$${namespace}&$${__url_time_range}\" style=\"color: #ffffff;\r\n    text-decoration: none;\">Overview</a></h3>",
         "mode": "markdown"
       },
-      "pluginVersion": "11.1.0-71799",
+      "pluginVersion": "11.2.0-72343",
       "transparent": true,
       "type": "text"
     },
@@ -102,10 +102,10 @@
           "showLineNumbers": false,
           "showMiniMap": false
         },
-        "content": "<h3 style=\"color: orange;\">Traces</a></h3>",
+        "content": "<h3><a href=\"${grafana_url}/d/${traces_dashboard_uid}/${traces_dashboard_name}?orgId=1&var-job=$${job}&var-service=$${service}&var-namespace=$${namespace}&$${__url_time_range}\" style=\"color: #ffffff;\r\n    text-decoration: none;\">Traces</a></h3>",
         "mode": "html"
       },
-      "pluginVersion": "11.1.0-71799",
+      "pluginVersion": "11.2.0-72343",
       "transparent": true,
       "type": "text"
     },
@@ -120,17 +120,17 @@
         "x": 6,
         "y": 2
       },
-      "id": 16,
+      "id": 11,
       "options": {
         "code": {
           "language": "plaintext",
           "showLineNumbers": false,
           "showMiniMap": false
         },
-        "content": "<h3><a href=\"https://bcpdesa.grafana.net/d/${logs_dashboard_uid}/${logs_dashboard_name}?orgId=1&var-job=$${job}&var-service=$${service}&var-namespace=$${namespace}\" style=\"color: #ffffff;\r\n    text-decoration: none;\">Logs</a></h3>",
+        "content": "<h3><a href=\"${grafana_url}/d/${logs_dashboard_uid}/${logs_dashboard_name}?orgId=1&var-job=$${job}&var-service=$${service}&var-namespace=$${namespace}&$${__url_time_range}\" style=\"color: #ffffff;\r\n    text-decoration: none;\">Logs</a></h3>",
         "mode": "markdown"
       },
-      "pluginVersion": "11.1.0-71799",
+      "pluginVersion": "11.2.0-72343",
       "transparent": true,
       "type": "text"
     },
@@ -145,17 +145,17 @@
         "x": 9,
         "y": 2
       },
-      "id": 17,
+      "id": 6,
       "options": {
         "code": {
           "language": "plaintext",
           "showLineNumbers": false,
           "showMiniMap": false
         },
-        "content": "<h3><a href=\"https://bcpdesa.grafana.net/d/${servicemap_dashboard_uid}/${servicemap_dashboard_name}?orgId=1&var-job=$${job}&var-service=$${service}&var-namespace=$${namespace}\" style=\"color: #ffffff;\r\n    text-decoration: none;\">Service Map</a></h3>",
+        "content": "<h3 style=\"color: orange;\">Service Map</h3>",
         "mode": "markdown"
       },
-      "pluginVersion": "11.1.0-71799",
+      "pluginVersion": "11.2.0-72343",
       "transparent": true,
       "type": "text"
     },
@@ -170,17 +170,17 @@
         "x": 12,
         "y": 2
       },
-      "id": 18,
+      "id": 12,
       "options": {
         "code": {
           "language": "plaintext",
           "showLineNumbers": false,
           "showMiniMap": false
         },
-        "content": "<h3><a href=\"https://bcpdesa.grafana.net/d/${jvm_dashboard_uid}/${jvm_dashboard_name}?orgId=1&var-job=$${job}&var-service=$${service}&var-namespace=$${namespace}\" style=\"color: #ffffff;\r\n    text-decoration: none;\">JVM</a></h3>",
+        "content": "<h3><a href=\"${grafana_url}/d/${jvm_dashboard_uid}/${jvm_dashboard_name}?orgId=1&var-job=$${job}&var-service=$${service}&var-namespace=$${namespace}&$${__url_time_range}\" style=\"color: #ffffff;\r\n    text-decoration: none;\">JVM</a></h3>",
         "mode": "markdown"
       },
-      "pluginVersion": "11.1.0-71799",
+      "pluginVersion": "11.2.0-72343",
       "transparent": true,
       "type": "text"
     },
@@ -195,17 +195,17 @@
         "x": 15,
         "y": 2
       },
-      "id": 19,
+      "id": 13,
       "options": {
         "code": {
           "language": "plaintext",
           "showLineNumbers": false,
           "showMiniMap": false
         },
-        "content": "<h3><a href=\"https://bcpdesa.grafana.net/d/${errors_dashboard_uid}/${errors_dashboard_name}?orgId=1&var-job=$${job}&var-service=$${service}&var-namespace=$${namespace}\" style=\"color: #ffffff;\r\n    text-decoration: none;\">Errors</a></h3>",
+        "content": "<h3><a href=\"${grafana_url}/d/${errors_dashboard_uid}/${errors_dashboard_name}?orgId=1&var-job=$${job}&var-service=$${service}&var-namespace=$${namespace}&$${__url_time_range}\" style=\"color: #ffffff;\r\n    text-decoration: none;\">Errors</a></h3>",
         "mode": "markdown"
       },
-      "pluginVersion": "11.1.0-71799",
+      "pluginVersion": "11.2.0-72343",
       "transparent": true,
       "type": "text"
     },
@@ -214,97 +214,64 @@
         "type": "tempo",
         "uid": "grafanacloud-traces"
       },
-      "fieldConfig": {
-        "defaults": {
-          "custom": {
-            "align": "auto",
-            "cellOptions": {
-              "type": "auto"
-            },
-            "inspect": false
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
       "gridPos": {
         "h": 20,
-        "w": 24,
+        "w": 12,
         "x": 0,
         "y": 4
       },
       "id": 2,
       "options": {
-        "cellHeight": "sm",
-        "footer": {
-          "countRows": false,
-          "enablePagination": true,
-          "fields": "",
-          "reducer": [
-            "sum"
-          ],
-          "show": false
-        },
-        "showHeader": true,
-        "sortBy": [
-          {
-            "desc": true,
-            "displayName": "Start time"
-          }
-        ]
+        "edges": {},
+        "nodes": {}
       },
-      "pluginVersion": "11.1.0-71799",
       "targets": [
         {
           "datasource": {
             "type": "tempo",
             "uid": "grafanacloud-traces"
           },
-          "filters": [
-            {
-              "id": "service-name",
-              "operator": "=",
-              "scope": "resource",
-              "tag": "service.name",
-              "value": [
-                "app-mbbk-session-v3"
-              ],
-              "valueType": "string"
-            },
-            {
-              "id": "resourceservicenamespace",
-              "operator": "=",
-              "scope": "resource",
-              "tag": "service.namespace",
-              "value": [
-                "mbbk"
-              ],
-              "valueType": "string"
-            }
-          ],
-          "limit": 1000,
-          "query": "{resource.service.name=\"$service\" && resource.service.namespace=\"$namespace\"}",
-          "queryType": "traceql",
-          "refId": "A",
-          "spss": 1000,
-          "tableType": "traces"
+          "expr": "",
+          "queryType": "serviceMap",
+          "refId": "serviceMap",
+          "serviceMapIncludeNamespace": true,
+          "serviceMapQuery": "{client_deployment_environment=~\".*\",server_deployment_environment=~\".*\",server=\"$service\"}"
         }
       ],
-      "title": "Traces",
-      "type": "table"
+      "title": "Upstream",
+      "type": "nodeGraph"
+    },
+    {
+      "datasource": {
+        "type": "tempo",
+        "uid": "grafanacloud-traces"
+      },
+      "gridPos": {
+        "h": 23,
+        "w": 12,
+        "x": 12,
+        "y": 4
+      },
+      "id": 1,
+      "options": {
+        "edges": {},
+        "nodes": {}
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "tempo",
+            "uid": "grafanacloud-traces"
+          },
+          "expr": "",
+          "queryType": "serviceMap",
+          "refId": "serviceMap",
+          "serviceMapIncludeNamespace": true,
+          "serviceMapQuery": "{client_deployment_environment=~\".*\",server_deployment_environment=~\".*\",client=\"$service\"}"
+        }
+      ],
+      "title": "Downstream",
+      "type": "nodeGraph"
     }
   ],
   "refresh": "",
@@ -315,8 +282,8 @@
       {
         "current": {
           "selected": false,
-          "text": "ageb/channel-ageb-account-transfer-v1",
-          "value": "ageb/channel-ageb-account-transfer-v1"
+          "text": "ciam/app-ciam-card-pin-v1",
+          "value": "ciam/app-ciam-card-pin-v1"
         },
         "datasource": {
           "type": "prometheus",
@@ -372,8 +339,8 @@
       {
         "current": {
           "selected": false,
-          "text": "ageb",
-          "value": "ageb"
+          "text": "ciam",
+          "value": "ciam"
         },
         "datasource": {
           "type": "prometheus",
@@ -399,8 +366,8 @@
       {
         "current": {
           "selected": false,
-          "text": "Cloud Prometheus: ageb-cer-ageb_token",
-          "value": "adfnehrm5v08wb"
+          "text": "Cloud Prometheus: ciam-cer-ciam_token",
+          "value": "edfnkmt7ndurka"
         },
         "hide": 2,
         "includeAll": false,

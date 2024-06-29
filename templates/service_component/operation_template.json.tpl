@@ -18,7 +18,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 2,
-  "id": 446,
+  "id": 1263,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -43,7 +43,7 @@
         "content": "# $${job} \r\n## $${span}",
         "mode": "markdown"
       },
-      "pluginVersion": "11.2.0-72125",
+      "pluginVersion": "11.2.0-72343",
       "transparent": true,
       "type": "text"
     },
@@ -569,7 +569,7 @@
         "sizing": "auto",
         "valueMode": "color"
       },
-      "pluginVersion": "11.2.0-72125",
+      "pluginVersion": "11.2.0-72343",
       "targets": [
         {
           "datasource": {
@@ -626,9 +626,10 @@
       },
       {
         "current": {
+          "isNone": true,
           "selected": false,
-          "text": "AzureTableTables.insertEntity",
-          "value": "AzureTableTables.insertEntity"
+          "text": "None",
+          "value": ""
         },
         "datasource": {
           "type": "prometheus",

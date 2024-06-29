@@ -18,46 +18,52 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 1,
-  "id": 146,
+  "id": 1258,
   "links": [],
   "liveNow": false,
   "panels": [
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "$${promds}"
-      },
-      "gridPos": {
-        "h": 2,
-        "w": 24,
-        "x": 0,
-        "y": 0
-      },
-      "id": 29,
-      "options": {
-        "code": {
-          "language": "plaintext",
-          "showLineNumbers": false,
-          "showMiniMap": false
-        },
-        "content": "<center><h4>$${job}</h4></center>",
-        "mode": "markdown"
-      },
-      "pluginVersion": "11.1.0-71516",
-      "transparent": true,
-      "type": "text"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "$${promds}"
+        "type": "grafana-azure-monitor-datasource",
+        "uid": "edgv7ueibpvr4f"
       },
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "thresholds"
+            "mode": "palette-classic"
           },
-          "fieldMinMax": false,
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -74,15 +80,39 @@
           {
             "matcher": {
               "id": "byFrameRefID",
-              "options": "A"
+              "options": "C"
             },
             "properties": [
+              {
+                "id": "custom.axisPlacement",
+                "value": "right"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              },
+              {
+                "id": "custom.axisColorMode",
+                "value": "series"
+              },
               {
                 "id": "color",
                 "value": {
                   "fixedColor": "red",
                   "mode": "fixed"
                 }
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 10
+              },
+              {
+                "id": "min",
+                "value": 0
+              },
+              {
+                "id": "custom.axisSoftMax",
+                "value": 0.1
               },
               {
                 "id": "unit",
@@ -93,9 +123,13 @@
           {
             "matcher": {
               "id": "byFrameRefID",
-              "options": "B"
+              "options": "D"
             },
             "properties": [
+              {
+                "id": "custom.fillOpacity",
+                "value": 45
+              },
               {
                 "id": "color",
                 "value": {
@@ -104,20 +138,46 @@
                 }
               },
               {
-                "id": "unit",
-                "value": "reqpm"
+                "id": "custom.axisColorMode",
+                "value": "series"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              },
+              {
+                "id": "custom.axisPlacement",
+                "value": "left"
               }
             ]
           },
           {
             "matcher": {
               "id": "byFrameRefID",
-              "options": "C"
+              "options": "A"
             },
             "properties": [
               {
-                "id": "unit",
-                "value": "ms"
+                "id": "custom.fillOpacity",
+                "value": 100
+              },
+              {
+                "id": "custom.lineStyle",
+                "value": {
+                  "dash": [
+                    10,
+                    10
+                  ],
+                  "fill": "dash"
+                }
+              },
+              {
+                "id": "custom.axisPlacement",
+                "value": "left"
+              },
+              {
+                "id": "custom.axisColorMode",
+                "value": "series"
               },
               {
                 "id": "color",
@@ -131,91 +191,163 @@
         ]
       },
       "gridPos": {
-        "h": 10,
+        "h": 9,
         "w": 4,
         "x": 0,
-        "y": 2
+        "y": 0
       },
-      "id": 42,
+      "id": 77,
       "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "horizontal",
-        "percentChangeColorMode": "standard",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
+        "legend": {
+          "calcs": [],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
         },
-        "showPercentChange": false,
-        "text": {
-          "titleSize": 15,
-          "valueSize": 15
-        },
-        "textMode": "auto",
-        "wideLayout": true
+        "tooltip": {
+          "maxHeight": 600,
+          "mode": "single",
+          "sort": "none"
+        }
       },
-      "pluginVersion": "11.1.0-71516",
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "$${promds}"
+          "azureMonitor": {
+            "aggregation": "Average",
+            "allowedTimeGrainsMs": [
+              60000,
+              300000,
+              900000,
+              1800000,
+              3600000,
+              21600000,
+              43200000,
+              86400000
+            ],
+            "dimensionFilters": [],
+            "metricNamespace": "microsoft.web/sites",
+            "region": "eastus2",
+            "resources": [
+              {
+                "metricNamespace": "Microsoft.Web/sites",
+                "region": "eastus2",
+                "resourceGroup": "RSGREU2CIAMC01",
+                "resourceName": "fncteu2ciamc01",
+                "subscription": "3ced38fc-3110-4a32-90dd-30e711f79b92"
+              }
+            ],
+            "timeGrain": "auto"
           },
-          "disableTextWrap": false,
-          "editorMode": "code",
-          "expr": "sum(increase(http_server_requests_count{status=~\"[45][0-9][0-9]\", service_namespace=~\"$namespace\", job=~\"$job\"}[$__range])) / sum(increase(http_server_requests_count{service_namespace=~\"$namespace\", job=~\"$job\"}[$__range]))",
-          "fullMetaSearch": false,
-          "includeNullMetadata": true,
-          "instant": false,
-          "legendFormat": "Failure rate",
-          "range": true,
+          "datasource": {
+            "type": "grafana-azure-monitor-datasource",
+            "uid": "edgv7ueibpvr4f"
+          },
+          "queryType": "Azure Monitor",
           "refId": "A",
-          "useBackend": false
+          "subscription": "3ced38fc-3110-4a32-90dd-30e711f79b92"
         },
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "$${promds}"
+          "azureMonitor": {
+            "aggregation": "Total",
+            "allowedTimeGrainsMs": [
+              60000,
+              300000,
+              900000,
+              1800000,
+              3600000,
+              21600000,
+              43200000,
+              86400000
+            ],
+            "dimensionFilters": [],
+            "metricName": "Http5xx",
+            "metricNamespace": "microsoft.web/sites",
+            "region": "eastus2",
+            "resources": [
+              {
+                "metricNamespace": "Microsoft.Web/sites",
+                "region": "eastus2",
+                "resourceGroup": "RSGREU2CIAMC01",
+                "resourceName": "fncteu2ciamc01",
+                "subscription": "3ced38fc-3110-4a32-90dd-30e711f79b92"
+              }
+            ],
+            "timeGrain": "auto"
           },
-          "disableTextWrap": false,
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "sum(rate(http_server_requests_count{service_namespace=~\"$namespace\", job=~\"$job\"}[5m]))",
-          "fullMetaSearch": false,
-          "hide": false,
-          "includeNullMetadata": true,
-          "instant": false,
-          "interval": "",
-          "legendFormat": "Request rate",
-          "range": true,
-          "refId": "B",
-          "useBackend": false
-        },
-        {
           "datasource": {
-            "type": "prometheus",
-            "uid": "$${promds}"
+            "type": "grafana-azure-monitor-datasource",
+            "uid": "edgv7ueibpvr4f"
           },
-          "disableTextWrap": false,
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "sum(increase(http_server_duration_sum{service_namespace=~\"$namespace\", job=~\"$job\"}[$__range])) / sum(increase(http_server_duration_count{service_namespace=~\"$namespace\", job=~\"$job\"}[$__range]))",
-          "fullMetaSearch": false,
           "hide": false,
-          "includeNullMetadata": true,
-          "instant": false,
-          "interval": "",
-          "legendFormat": "Response time",
-          "range": true,
+          "queryType": "Azure Monitor",
           "refId": "C",
-          "useBackend": false
+          "subscription": "3ced38fc-3110-4a32-90dd-30e711f79b92"
+        },
+        {
+          "azureMonitor": {
+            "aggregation": "Average",
+            "allowedTimeGrainsMs": [
+              60000,
+              300000,
+              900000,
+              1800000,
+              3600000,
+              21600000,
+              43200000,
+              86400000
+            ],
+            "dimensionFilters": [],
+            "metricName": "Requests",
+            "metricNamespace": "microsoft.web/sites",
+            "region": "eastus2",
+            "resources": [
+              {
+                "metricNamespace": "Microsoft.Web/sites",
+                "region": "eastus2",
+                "resourceGroup": "RSGREU2CIAMC01",
+                "resourceName": "fncteu2ciamc01",
+                "subscription": "3ced38fc-3110-4a32-90dd-30e711f79b92"
+              }
+            ],
+            "timeGrain": "auto"
+          },
+          "datasource": {
+            "type": "grafana-azure-monitor-datasource",
+            "uid": "edgv7ueibpvr4f"
+          },
+          "hide": false,
+          "queryType": "Azure Monitor",
+          "refId": "D",
+          "subscription": "3ced38fc-3110-4a32-90dd-30e711f79b92"
         }
       ],
-      "type": "stat"
+      "title": "Azure app Service",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "$${promds}"
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 20,
+        "x": 4,
+        "y": 0
+      },
+      "id": 29,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<center><h4>$${job}</h4></center>",
+        "mode": "markdown"
+      },
+      "pluginVersion": "11.2.0-72343",
+      "transparent": true,
+      "type": "text"
     },
     {
       "datasource": {
@@ -572,17 +704,16 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "$${promds}"
+        "type": "grafana-azure-monitor-datasource",
+        "uid": "edgv7ueibpvr4f"
       },
       "fieldConfig": {
         "defaults": {
           "color": {
             "mode": "thresholds"
           },
+          "fieldMinMax": false,
           "mappings": [],
-          "max": 1,
-          "min": 0,
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -592,22 +723,80 @@
               }
             ]
           },
-          "unit": "percentunit"
+          "unit": "none"
         },
-        "overrides": []
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "A"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "unit",
+                "value": "percentunit"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "B"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "light-blue",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "unit",
+                "value": "reqpm"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "C"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "ms"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "light-green",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
       },
       "gridPos": {
-        "h": 6,
+        "h": 8,
         "w": 4,
         "x": 0,
-        "y": 12
+        "y": 9
       },
-      "id": 15,
+      "id": 42,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
         "justifyMode": "auto",
-        "orientation": "auto",
+        "orientation": "horizontal",
         "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
@@ -617,29 +806,126 @@
           "values": false
         },
         "showPercentChange": false,
+        "text": {
+          "titleSize": 15,
+          "valueSize": 15
+        },
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.1.0-71516",
+      "pluginVersion": "11.2.0-72343",
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "$${promds}"
+          "azureMonitor": {
+            "aggregation": "Average",
+            "allowedTimeGrainsMs": [
+              60000,
+              300000,
+              900000,
+              1800000,
+              3600000,
+              21600000,
+              43200000,
+              86400000
+            ],
+            "dimensionFilters": [],
+            "metricName": "HttpResponseTime",
+            "metricNamespace": "microsoft.web/sites",
+            "region": "eastus2",
+            "resources": [
+              {
+                "metricNamespace": "Microsoft.Web/sites",
+                "region": "eastus2",
+                "resourceGroup": "RSGREU2CIAMC01",
+                "resourceName": "fncteu2ciamc01",
+                "subscription": "3ced38fc-3110-4a32-90dd-30e711f79b92"
+              }
+            ],
+            "timeGrain": "auto"
           },
-          "disableTextWrap": false,
-          "editorMode": "code",
-          "expr": "sum(increase(http_server_requests_count{status=~\"[45][0-9][0-9]\", service_namespace=~\"$namespace\", job=~\"$job\"}[$__range])) / sum(increase(http_server_requests_count{service_namespace=~\"$namespace\", job=~\"$job\"}[$__range]))",
-          "fullMetaSearch": false,
-          "includeNullMetadata": true,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
+          "datasource": {
+            "type": "grafana-azure-monitor-datasource",
+            "uid": "edgv7ueibpvr4f"
+          },
+          "queryType": "Azure Monitor",
           "refId": "A",
-          "useBackend": false
+          "subscription": "3ced38fc-3110-4a32-90dd-30e711f79b92"
+        },
+        {
+          "azureMonitor": {
+            "aggregation": "Total",
+            "allowedTimeGrainsMs": [
+              60000,
+              300000,
+              900000,
+              1800000,
+              3600000,
+              21600000,
+              43200000,
+              86400000
+            ],
+            "dimensionFilters": [],
+            "metricName": "Http5xx",
+            "metricNamespace": "microsoft.web/sites",
+            "region": "eastus2",
+            "resources": [
+              {
+                "metricNamespace": "Microsoft.Web/sites",
+                "region": "eastus2",
+                "resourceGroup": "RSGREU2CIAMC01",
+                "resourceName": "fncteu2ciamc01",
+                "subscription": "3ced38fc-3110-4a32-90dd-30e711f79b92"
+              }
+            ],
+            "timeGrain": "auto"
+          },
+          "datasource": {
+            "type": "grafana-azure-monitor-datasource",
+            "uid": "edgv7ueibpvr4f"
+          },
+          "hide": false,
+          "queryType": "Azure Monitor",
+          "refId": "B",
+          "subscription": "3ced38fc-3110-4a32-90dd-30e711f79b92"
+        },
+        {
+          "azureMonitor": {
+            "aggregation": "Total",
+            "allowedTimeGrainsMs": [
+              60000,
+              300000,
+              900000,
+              1800000,
+              3600000,
+              21600000,
+              43200000,
+              86400000
+            ],
+            "dimensionFilters": [],
+            "metricName": "Requests",
+            "metricNamespace": "microsoft.web/sites",
+            "region": "eastus2",
+            "resources": [
+              {
+                "metricNamespace": "Microsoft.Web/sites",
+                "region": "eastus2",
+                "resourceGroup": "RSGREU2CIAMC01",
+                "resourceName": "fncteu2ciamc01",
+                "subscription": "3ced38fc-3110-4a32-90dd-30e711f79b92"
+              }
+            ],
+            "timeGrain": "auto"
+          },
+          "datasource": {
+            "type": "grafana-azure-monitor-datasource",
+            "uid": "edgv7ueibpvr4f"
+          },
+          "hide": false,
+          "queryType": "Azure Monitor",
+          "refId": "C",
+          "subscription": "3ced38fc-3110-4a32-90dd-30e711f79b92"
         }
       ],
-      "title": "failure rate (server side errors)",
       "type": "stat"
     },
     {
@@ -663,7 +949,7 @@
         "content": "<h4>Tasa de fallas (General)</h4>",
         "mode": "markdown"
       },
-      "pluginVersion": "11.1.0-71516",
+      "pluginVersion": "11.2.0-72343",
       "transparent": true,
       "type": "text"
     },
@@ -688,7 +974,7 @@
         "content": "<h4>Cantidad de errores HTTP (General)</h4>",
         "mode": "markdown"
       },
-      "pluginVersion": "11.1.0-71516",
+      "pluginVersion": "11.2.0-72343",
       "transparent": true,
       "type": "text"
     },
@@ -756,7 +1042,7 @@
         "sizing": "manual",
         "valueMode": "text"
       },
-      "pluginVersion": "11.1.0-71516",
+      "pluginVersion": "11.2.0-72343",
       "targets": [
         {
           "datasource": {
@@ -845,7 +1131,7 @@
         "sizing": "manual",
         "valueMode": "text"
       },
-      "pluginVersion": "11.1.0-71516",
+      "pluginVersion": "11.2.0-72343",
       "targets": [
         {
           "datasource": {
@@ -933,7 +1219,7 @@
         "sizing": "manual",
         "valueMode": "text"
       },
-      "pluginVersion": "11.1.0-71516",
+      "pluginVersion": "11.2.0-72343",
       "targets": [
         {
           "datasource": {
@@ -1019,7 +1305,7 @@
         "sizing": "manual",
         "valueMode": "text"
       },
-      "pluginVersion": "11.1.0-71516",
+      "pluginVersion": "11.2.0-72343",
       "targets": [
         {
           "datasource": {
@@ -1044,13 +1330,105 @@
     },
     {
       "datasource": {
+        "type": "grafana-azure-monitor-datasource",
+        "uid": "edgv7ueibpvr4f"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "max": 1,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 4,
+        "x": 0,
+        "y": 17
+      },
+      "id": 15,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.2.0-72343",
+      "targets": [
+        {
+          "azureMonitor": {
+            "aggregation": "Total",
+            "allowedTimeGrainsMs": [
+              60000,
+              300000,
+              900000,
+              1800000,
+              3600000,
+              21600000,
+              43200000,
+              86400000
+            ],
+            "dimensionFilters": [],
+            "metricName": "Http5xx",
+            "metricNamespace": "microsoft.web/sites",
+            "region": "eastus2",
+            "resources": [
+              {
+                "metricNamespace": "Microsoft.Web/sites",
+                "region": "eastus2",
+                "resourceGroup": "RSGREU2CIAMC01",
+                "resourceName": "fncteu2ciamc01",
+                "subscription": "3ced38fc-3110-4a32-90dd-30e711f79b92"
+              }
+            ],
+            "timeGrain": "auto"
+          },
+          "datasource": {
+            "type": "grafana-azure-monitor-datasource",
+            "uid": "edgv7ueibpvr4f"
+          },
+          "queryType": "Azure Monitor",
+          "refId": "A",
+          "subscription": "3ced38fc-3110-4a32-90dd-30e711f79b92"
+        }
+      ],
+      "title": "failure rate (server side errors)",
+      "type": "stat"
+    },
+    {
+      "datasource": {
         "type": "prometheus",
         "uid": "$${promds}"
       },
       "gridPos": {
-        "h": 1.5,
-        "w": 14,
-        "x": 0,
+        "h": 1.25,
+        "w": 10,
+        "x": 4,
         "y": 18.25
       },
       "id": 4,
@@ -1060,10 +1438,10 @@
           "showLineNumbers": false,
           "showMiniMap": false
         },
-        "content": "<center><h4>Databases</h4></center>",
+        "content": "<h4>Databases</h4>",
         "mode": "markdown"
       },
-      "pluginVersion": "11.1.0-71516",
+      "pluginVersion": "11.2.0-72343",
       "transparent": true,
       "type": "text"
     },
@@ -1107,7 +1485,7 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 6.5,
+        "h": 6,
         "w": 10,
         "x": 14,
         "y": 18.25
@@ -1131,7 +1509,7 @@
         "sizing": "manual",
         "valueMode": "color"
       },
-      "pluginVersion": "11.1.0-71516",
+      "pluginVersion": "11.2.0-72343",
       "targets": [
         {
           "datasource": {
@@ -1194,9 +1572,9 @@
       },
       "gridPos": {
         "h": 5,
-        "w": 7,
-        "x": 0,
-        "y": 19.75
+        "w": 5,
+        "x": 4,
+        "y": 19.5
       },
       "id": 5,
       "options": {
@@ -1217,7 +1595,7 @@
         "sizing": "manual",
         "valueMode": "color"
       },
-      "pluginVersion": "11.1.0-71516",
+      "pluginVersion": "11.2.0-72343",
       "targets": [
         {
           "datasource": {
@@ -1279,9 +1657,9 @@
       },
       "gridPos": {
         "h": 5,
-        "w": 7,
-        "x": 7,
-        "y": 19.75
+        "w": 5,
+        "x": 9,
+        "y": 19.5
       },
       "id": 6,
       "options": {
@@ -1302,7 +1680,7 @@
         "sizing": "manual",
         "valueMode": "color"
       },
-      "pluginVersion": "11.1.0-71516",
+      "pluginVersion": "11.2.0-72343",
       "targets": [
         {
           "datasource": {
@@ -1335,7 +1713,7 @@
         "h": 1.25,
         "w": 24,
         "x": 0,
-        "y": 24.75
+        "y": 24.5
       },
       "id": 67,
       "options": {
@@ -1347,7 +1725,7 @@
         "content": "<center><h4>CircuitBreaker</h4></center>",
         "mode": "html"
       },
-      "pluginVersion": "11.1.0-71516",
+      "pluginVersion": "11.2.0-72343",
       "type": "text"
     },
     {
@@ -1413,7 +1791,7 @@
         "h": 6,
         "w": 9,
         "x": 0,
-        "y": 26
+        "y": 25.75
       },
       "id": 59,
       "options": {
@@ -1483,7 +1861,7 @@
         "h": 6,
         "w": 3,
         "x": 9,
-        "y": 26
+        "y": 25.75
       },
       "id": 61,
       "options": {
@@ -1501,7 +1879,7 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "11.1.0-71516",
+      "pluginVersion": "11.2.0-72343",
       "targets": [
         {
           "datasource": {
@@ -1556,7 +1934,7 @@
         "h": 6,
         "w": 3,
         "x": 12,
-        "y": 26
+        "y": 25.75
       },
       "id": 63,
       "options": {
@@ -1574,7 +1952,7 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "11.1.0-71516",
+      "pluginVersion": "11.2.0-72343",
       "targets": [
         {
           "datasource": {
@@ -1659,7 +2037,7 @@
         "h": 12,
         "w": 9,
         "x": 15,
-        "y": 26
+        "y": 25.75
       },
       "id": 60,
       "options": {
@@ -1743,7 +2121,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -1758,7 +2137,7 @@
         "h": 6,
         "w": 9,
         "x": 0,
-        "y": 32
+        "y": 31.75
       },
       "id": 62,
       "options": {
@@ -1811,7 +2190,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -1827,7 +2207,7 @@
         "h": 6,
         "w": 3,
         "x": 9,
-        "y": 32
+        "y": 31.75
       },
       "id": 65,
       "options": {
@@ -1845,7 +2225,7 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "11.1.0-69372",
+      "pluginVersion": "11.2.0-72343",
       "targets": [
         {
           "datasource": {
@@ -1882,7 +2262,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "orange",
@@ -1902,7 +2283,7 @@
         "h": 6,
         "w": 3,
         "x": 12,
-        "y": 32
+        "y": 31.75
       },
       "id": 64,
       "options": {
@@ -1910,6 +2291,7 @@
         "graphMode": "area",
         "justifyMode": "auto",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -1921,7 +2303,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.1.0-69372",
+      "pluginVersion": "11.2.0-72343",
       "targets": [
         {
           "datasource": {
@@ -1990,7 +2372,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -2003,10 +2386,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 14,
-        "w": 8,
+        "h": 16,
+        "w": 10,
         "x": 0,
-        "y": 38
+        "y": 37.75
       },
       "id": 69,
       "options": {
@@ -2083,7 +2466,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -2227,10 +2611,10 @@
         ]
       },
       "gridPos": {
-        "h": 14,
-        "w": 12,
-        "x": 8,
-        "y": 38
+        "h": 16,
+        "w": 10,
+        "x": 10,
+        "y": 37.75
       },
       "id": 72,
       "options": {
@@ -2246,7 +2630,7 @@
         },
         "showHeader": true
       },
-      "pluginVersion": "11.1.0-69372",
+      "pluginVersion": "11.2.0-72343",
       "targets": [
         {
           "datasource": {
@@ -2397,7 +2781,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -2410,10 +2795,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 5,
+        "h": 8,
         "w": 4,
         "x": 20,
-        "y": 38
+        "y": 37.75
       },
       "id": 76,
       "options": {
@@ -2421,6 +2806,7 @@
         "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -2432,7 +2818,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.1.0-69372",
+      "pluginVersion": "11.2.0-72343",
       "targets": [
         {
           "datasource": {
@@ -2470,7 +2856,7 @@
             "$__all"
           ]
         },
-        "description": "apcs, APCS",
+        "description": "${uid}, ${folder}",
         "hide": 2,
         "includeAll": true,
         "label": "Namespace",
@@ -2484,16 +2870,16 @@
           },
           {
             "selected": false,
-            "text": "apcs",
-            "value": "apcs"
+            "text": "ciam",
+            "value": "ciam"
           },
           {
             "selected": false,
-            "text": "APCS",
-            "value": "APCS"
+            "text": "CIAM",
+            "value": "CIAM"
           }
         ],
-        "query": "apcs, APCS",
+        "query": "${uid}, ${folder}",
         "queryValue": "",
         "skipUrlSync": false,
         "type": "custom"
@@ -2533,8 +2919,8 @@
       {
         "current": {
           "selected": false,
-          "text": "Cloud Prometheus: apcs-cer-apcs_token",
-          "value": "eddl2t0twaosgd"
+          "text": "Cloud Prometheus: ciam-cer-ciam_token",
+          "value": "edfnkmt7ndurka"
         },
         "hide": 2,
         "includeAll": false,
@@ -2556,5 +2942,7 @@
   "timepicker": {},
   "timezone": "",
   "title": "${dashboard_title}",
+  "uid": "${uid}",
+  "version": 1,
   "weekStart": ""
 }

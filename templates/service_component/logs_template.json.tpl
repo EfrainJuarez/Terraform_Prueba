@@ -18,7 +18,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 448,
+  "id": 1262,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -33,17 +33,17 @@
         "x": 0,
         "y": 0
       },
-      "id": 8,
+      "id": 7,
       "options": {
         "code": {
           "language": "typescript",
           "showLineNumbers": false,
           "showMiniMap": false
         },
-        "content": "<h1> $${job}</h1>",
+        "content": "<h1> $${job} </h1>",
         "mode": "html"
       },
-      "pluginVersion": "11.1.0-71799",
+      "pluginVersion": "11.2.0-72343",
       "targets": [
         {
           "datasource": {
@@ -70,17 +70,17 @@
         "x": 0,
         "y": 2
       },
-      "id": 9,
+      "id": 8,
       "options": {
         "code": {
           "language": "plaintext",
           "showLineNumbers": false,
           "showMiniMap": false
         },
-        "content": "<h3><a href=\"https://bcpdesa.grafana.net/d/${uid_overview}/${overview_name}?orgId=1&var-job=$${job}&var-service=$${service}&var-namespace=$${namespace}\" style=\"color: #ffffff;\r\n    text-decoration: none;\">Overview</a></h3>",
+        "content": "<h3><a href=\"${grafana_url}/d/${overview_dashboard_uid}/${overview_dashboard_name}?orgId=1&var-job=$${job}&var-service=$${service}&var-namespace=$${namespace}&$${__url_time_range}\" style=\"color: #ffffff;\r\n    text-decoration: none;\">Overview</a></h3>",
         "mode": "markdown"
       },
-      "pluginVersion": "11.1.0-71799",
+      "pluginVersion": "11.2.0-72343",
       "transparent": true,
       "type": "text"
     },
@@ -95,17 +95,17 @@
         "x": 3,
         "y": 2
       },
-      "id": 10,
+      "id": 9,
       "options": {
         "code": {
           "language": "plaintext",
           "showLineNumbers": false,
           "showMiniMap": false
         },
-        "content": "<h3><a href=\"https://bcpdesa.grafana.net/d/${traces_dashboard_uid}/${traces_dashboard_name}?orgId=1&var-job=$${job}&var-service=$${service}&var-namespace=$${namespace}\" style=\"color: #ffffff;\r\n    text-decoration: none;\">Traces</a></h3>",
+        "content": "<h3><a href=\"${grafana_url}/d/${traces_dashboard_uid}/${traces_dashboard_name}?orgId=1&var-job=$${job}&var-service=$${service}&var-namespace=$${namespace}&$${__url_time_range}\" style=\"color: #ffffff;\r\n    text-decoration: none;\">Traces</a></h3>",
         "mode": "html"
       },
-      "pluginVersion": "11.1.0-71799",
+      "pluginVersion": "11.2.0-72343",
       "transparent": true,
       "type": "text"
     },
@@ -120,17 +120,17 @@
         "x": 6,
         "y": 2
       },
-      "id": 11,
+      "id": 4,
       "options": {
         "code": {
           "language": "plaintext",
           "showLineNumbers": false,
           "showMiniMap": false
         },
-        "content": "<h3><a href=\"https://bcpdesa.grafana.net/d/${logs_dashboard_uid}/${logs_dashboard_name}?orgId=1&var-job=$${job}&var-service=$${service}&var-namespace=$${namespace}\" style=\"color: #ffffff;\r\n    text-decoration: none;\">Logs</a></h3>",
+        "content": "<h3 style=\"color: orange;\">Logs</h3>",
         "mode": "markdown"
       },
-      "pluginVersion": "11.1.0-71799",
+      "pluginVersion": "11.2.0-72343",
       "transparent": true,
       "type": "text"
     },
@@ -145,17 +145,17 @@
         "x": 9,
         "y": 2
       },
-      "id": 6,
+      "id": 10,
       "options": {
         "code": {
           "language": "plaintext",
           "showLineNumbers": false,
           "showMiniMap": false
         },
-        "content": "<h3 style=\"color: orange;\">Service Map</h3>",
+        "content": "<h3><a href=\"${grafana_url}/d/${servicemap_dashboard_uid}/${servicemap_dashboard_name}?orgId=1&var-job=$${job}&var-service=$${service}&var-namespace=$${namespace}&$${__url_time_range}\" style=\"color: #ffffff;\r\n    text-decoration: none;\">Service Map</a></h3>",
         "mode": "markdown"
       },
-      "pluginVersion": "11.1.0-71799",
+      "pluginVersion": "11.2.0-72343",
       "transparent": true,
       "type": "text"
     },
@@ -170,17 +170,17 @@
         "x": 12,
         "y": 2
       },
-      "id": 12,
+      "id": 11,
       "options": {
         "code": {
           "language": "plaintext",
           "showLineNumbers": false,
           "showMiniMap": false
         },
-        "content": "<h3><a href=\"https://bcpdesa.grafana.net/d/${jvm_dashboard_uid}/${jvm_dashboard_name}?orgId=1&var-job=$${job}&var-service=$${service}&var-namespace=$${namespace}\" style=\"color: #ffffff;\r\n    text-decoration: none;\">JVM</a></h3>",
+        "content": "<h3><a href=\"${grafana_url}/d/${jvm_dashboard_uid}/${jvm_dashboard_name}?orgId=1&var-job=$${job}&var-service=$${service}&var-namespace=$${namespace}&$${__url_time_range}\" style=\"color: #ffffff;\r\n    text-decoration: none;\">JVM</a></h3>",
         "mode": "markdown"
       },
-      "pluginVersion": "11.1.0-71799",
+      "pluginVersion": "11.2.0-72343",
       "transparent": true,
       "type": "text"
     },
@@ -195,83 +195,56 @@
         "x": 15,
         "y": 2
       },
-      "id": 13,
+      "id": 12,
       "options": {
         "code": {
           "language": "plaintext",
           "showLineNumbers": false,
           "showMiniMap": false
         },
-        "content": "<h3><a href=\"https://bcpdesa.grafana.net/d/${errors_dashboard_uid}/${errors_dashboard_name}?orgId=1&var-job=$${job}&var-service=$${service}&var-namespace=$${namespace}\" style=\"color: #ffffff;\r\n    text-decoration: none;\">Errors</a></h3>",
+        "content": "<h3><a href=\"${grafana_url}/d/${errors_dashboard_uid}/${errors_dashboard_name}?orgId=1&var-job=$${job}&var-service=$${service}&var-namespace=$${namespace}&$${__url_time_range}\" style=\"color: #ffffff;\r\n    text-decoration: none;\">Errors</a></h3>",
         "mode": "markdown"
       },
-      "pluginVersion": "11.1.0-71799",
+      "pluginVersion": "11.2.0-72343",
       "transparent": true,
       "type": "text"
     },
     {
       "datasource": {
-        "type": "tempo",
-        "uid": "grafanacloud-traces"
+        "type": "loki",
+        "uid": "grafanacloud-logs"
       },
       "gridPos": {
         "h": 20,
-        "w": 12,
+        "w": 24,
         "x": 0,
-        "y": 4
-      },
-      "id": 2,
-      "options": {
-        "edges": {},
-        "nodes": {}
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "tempo",
-            "uid": "grafanacloud-traces"
-          },
-          "expr": "",
-          "queryType": "serviceMap",
-          "refId": "serviceMap",
-          "serviceMapIncludeNamespace": true,
-          "serviceMapQuery": "{client_deployment_environment=~\".*\",server_deployment_environment=~\".*\",server=\"$service\"}"
-        }
-      ],
-      "title": "Upstream",
-      "type": "nodeGraph"
-    },
-    {
-      "datasource": {
-        "type": "tempo",
-        "uid": "grafanacloud-traces"
-      },
-      "gridPos": {
-        "h": 23,
-        "w": 12,
-        "x": 12,
         "y": 4
       },
       "id": 1,
       "options": {
-        "edges": {},
-        "nodes": {}
+        "dedupStrategy": "none",
+        "enableLogDetails": true,
+        "prettifyLogMessage": false,
+        "showCommonLabels": false,
+        "showLabels": false,
+        "showTime": false,
+        "sortOrder": "Descending",
+        "wrapLogMessage": false
       },
       "targets": [
         {
           "datasource": {
-            "type": "tempo",
-            "uid": "grafanacloud-traces"
+            "type": "loki",
+            "uid": "grafanacloud-logs"
           },
-          "expr": "",
-          "queryType": "serviceMap",
-          "refId": "serviceMap",
-          "serviceMapIncludeNamespace": true,
-          "serviceMapQuery": "{client_deployment_environment=~\".*\",server_deployment_environment=~\".*\",client=\"$service\"}"
+          "editorMode": "code",
+          "expr": "{exporter=\"OTLP\", job=\"$job\"} | json | resources_deployment_environment=~\".*\" | line_format `\u001b[1m{{if .level }}{{alignRight 5 .level}}{{else if .severity}}{{alignRight 5 .severity}}{{end}}\u001b[0m \u001b[90m[{{alignRight 10 .resources_service_instance_id}}{{if .attributes_thread_name}}/{{alignRight 20 .attributes_thread_name}}{{else if eq \"java\" .resources_telemetry_sdk_language }} {{end}}]\u001b[0m \u001b[36m{{if .instrumentation_scope_name }}{{alignRight 40 .instrumentation_scope_name}}{{end}}\u001b[0m {{.body}} {{if .traceid}} \u001b[37m\u001b[3m[traceid={{.traceid}}]{{end}}`",
+          "queryType": "range",
+          "refId": "serviceLogs"
         }
       ],
-      "title": "Downstream",
-      "type": "nodeGraph"
+      "title": "Logs",
+      "type": "logs"
     }
   ],
   "refresh": "",
@@ -282,8 +255,8 @@
       {
         "current": {
           "selected": false,
-          "text": "ageb/channel-ageb-account-transfer-v1",
-          "value": "ageb/channel-ageb-account-transfer-v1"
+          "text": "ciam/app-ciam-card-v3",
+          "value": "ciam/app-ciam-card-v3"
         },
         "datasource": {
           "type": "prometheus",
@@ -339,8 +312,8 @@
       {
         "current": {
           "selected": false,
-          "text": "ageb",
-          "value": "ageb"
+          "text": "ciam",
+          "value": "ciam"
         },
         "datasource": {
           "type": "prometheus",
@@ -366,8 +339,8 @@
       {
         "current": {
           "selected": false,
-          "text": "Cloud Prometheus: ageb-cer-ageb_token",
-          "value": "adfnehrm5v08wb"
+          "text": "Cloud Prometheus: ciam-cer-ciam_token",
+          "value": "edfnkmt7ndurka"
         },
         "hide": 2,
         "includeAll": false,
@@ -384,7 +357,7 @@
     ]
   },
   "time": {
-    "from": "now-7d",
+    "from": "now-1h",
     "to": "now"
   },
   "timepicker": {},

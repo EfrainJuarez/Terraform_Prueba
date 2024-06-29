@@ -18,7 +18,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 442,
+  "id": 1259,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -567,7 +567,7 @@
         },
         "showHeader": true
       },
-      "pluginVersion": "11.2.0-72125",
+      "pluginVersion": "11.2.0-72343",
       "targets": [
         {
           "datasource": {
@@ -674,8 +674,8 @@
       {
         "current": {
           "selected": false,
-          "text": "Cloud Prometheus: ageb-cer-ageb_token",
-          "value": "adfnehrm5v08wb"
+          "text": "Cloud Prometheus: cptd-cer-cptd_token",
+          "value": "bddl5l5ay33swb"
         },
         "hide": 2,
         "includeAll": false,

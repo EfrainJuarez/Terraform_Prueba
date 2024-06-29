@@ -18,7 +18,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 46,
+  "id": 1267,
   "links": [],
   "panels": [
     {
@@ -198,7 +198,7 @@
         "text": {},
         "valueMode": "color"
       },
-      "pluginVersion": "11.1.0-71516",
+      "pluginVersion": "11.2.0-72343",
       "targets": [
         {
           "datasource": {
@@ -212,10 +212,10 @@
           "format": "time_series",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
-          "instant": true,
+          "instant": false,
           "interval": "",
           "legendFormat": "{{instance}}",
-          "range": false,
+          "range": true,
           "refId": "A",
           "useBackend": false
         }
@@ -303,7 +303,7 @@
         "text": {},
         "valueMode": "color"
       },
-      "pluginVersion": "11.1.0-71516",
+      "pluginVersion": "11.2.0-72343",
       "targets": [
         {
           "datasource": {
@@ -316,9 +316,9 @@
           "expr": "sort_desc(sum(rate(node_cpu_seconds_total{mode!=\"idle\", app_group=~\"$app_group\", instance=~\"$instance\"}[5m])) by (instance))",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
-          "instant": true,
+          "instant": false,
           "legendFormat": "__auto",
-          "range": false,
+          "range": true,
           "refId": "A",
           "useBackend": false
         }
@@ -385,7 +385,7 @@
         "text": {},
         "valueMode": "color"
       },
-      "pluginVersion": "11.1.0-71516",
+      "pluginVersion": "11.2.0-72343",
       "targets": [
         {
           "datasource": {
@@ -393,14 +393,14 @@
             "uid": "$${promcert}"
           },
           "disableTextWrap": false,
-          "editorMode": "builder",
+          "editorMode": "code",
           "exemplar": false,
           "expr": "sort_desc(sum by(container) (rate(container_cpu_usage_seconds_total{app_group=~\"$app_group\", instance=~\"$instance\", container!=\"\"}[5m])))",
           "fullMetaSearch": false,
           "includeNullMetadata": false,
-          "instant": true,
+          "instant": false,
           "legendFormat": "{{instance}}",
-          "range": false,
+          "range": true,
           "refId": "A",
           "useBackend": false
         }
@@ -461,7 +461,7 @@
         "text": {},
         "valueMode": "color"
       },
-      "pluginVersion": "11.1.0-71516",
+      "pluginVersion": "11.2.0-72343",
       "targets": [
         {
           "datasource": {
@@ -469,14 +469,14 @@
             "uid": "$${promcert}"
           },
           "disableTextWrap": false,
-          "editorMode": "builder",
+          "editorMode": "code",
           "exemplar": false,
           "expr": "sort_desc(sum by(node) (node_namespace_pod_container:container_memory_working_set_bytes{app_group=~\"$app_group\", instance=~\"$instance\"}))",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
-          "instant": true,
+          "instant": false,
           "legendFormat": "{{label_name}}",
-          "range": false,
+          "range": true,
           "refId": "A",
           "useBackend": false
         }
@@ -540,7 +540,7 @@
         "text": {},
         "valueMode": "color"
       },
-      "pluginVersion": "11.1.0-71516",
+      "pluginVersion": "11.2.0-72343",
       "targets": [
         {
           "datasource": {
@@ -548,14 +548,14 @@
             "uid": "$${promcert}"
           },
           "disableTextWrap": false,
-          "editorMode": "builder",
+          "editorMode": "code",
           "exemplar": false,
           "expr": "sort_desc(sum by(container) (node_namespace_pod_container:container_memory_working_set_bytes{app_group=~\"$app_group\", instance=~\"$instance\"}))",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
-          "instant": true,
+          "instant": false,
           "legendFormat": "__auto",
-          "range": false,
+          "range": true,
           "refId": "A",
           "useBackend": false
         }
@@ -584,7 +584,7 @@
         "content": "<center><h4>Network</h4></center>",
         "mode": "html"
       },
-      "pluginVersion": "11.1.0-71516",
+      "pluginVersion": "11.2.0-72343",
       "type": "text"
     },
     {
@@ -598,17 +598,17 @@
         "x": 5,
         "y": 9
       },
-      "id": 30,
+      "id": 61,
       "options": {
         "code": {
           "language": "plaintext",
           "showLineNumbers": false,
           "showMiniMap": false
         },
-        "content": "<center><h4>Database</h4></center>",
+        "content": "<center><h4>Cosmos Database</h4></center>",
         "mode": "html"
       },
-      "pluginVersion": "11.1.0-71516",
+      "pluginVersion": "11.2.0-72343",
       "type": "text"
     },
     {
@@ -632,7 +632,7 @@
         "content": "<center><h4>Redis Cache</h4></center>",
         "mode": "html"
       },
-      "pluginVersion": "11.1.0-71516",
+      "pluginVersion": "11.2.0-72343",
       "type": "text"
     },
     {
@@ -796,7 +796,7 @@
             "uid": "$${promcert}"
           },
           "disableTextWrap": false,
-          "editorMode": "builder",
+          "editorMode": "code",
           "exemplar": false,
           "expr": "avg(sum by(app_group) (rate(container_network_receive_bytes_total{app_group=~\"$app_group\"}[$__rate_interval]))) + avg(sum by(app_group) (rate(container_network_transmit_bytes_total{app_group=~\"$app_group\"}[$__rate_interval])))",
           "fullMetaSearch": false,
@@ -850,6 +850,7 @@
             "mode": "thresholds"
           },
           "mappings": [],
+          "max": 1000,
           "min": 0,
           "thresholds": {
             "mode": "absolute",
@@ -860,7 +861,7 @@
               }
             ]
           },
-          "unit": "reqpm"
+          "unit": "short"
         },
         "overrides": []
       },
@@ -870,7 +871,7 @@
         "x": 5,
         "y": 10.25
       },
-      "id": 40,
+      "id": 45,
       "options": {
         "colorMode": "background",
         "graphMode": "area",
@@ -884,15 +885,15 @@
           "fields": "",
           "values": false
         },
-        "showPercentChange": false,
+        "showPercentChange": true,
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.1.0-71516",
+      "pluginVersion": "11.2.0-72343",
       "targets": [
         {
           "azureMonitor": {
-            "aggregation": "Average",
+            "aggregation": "Count",
             "allowedTimeGrainsMs": [
               60000,
               300000,
@@ -904,23 +905,16 @@
               86400000
             ],
             "dimensionFilters": [],
-            "metricName": "sessions_count",
-            "metricNamespace": "microsoft.sql/servers/databases",
+            "metricName": "TotalRequests",
+            "metricNamespace": "microsoft.documentdb/databaseaccounts",
             "region": "eastus2",
             "resources": [
               {
-                "metricNamespace": "microsoft.sql/servers/databases",
+                "metricNamespace": "microsoft.documentdb/databaseaccounts",
                 "region": "eastus2",
-                "resourceGroup": "RSGREU2APCSC01",
-                "resourceName": "msqleu2apcsc01/dbsqleu2apcsc01",
-                "subscription": "da57100c-1273-40e3-bc9c-1696bae04d4f"
-              },
-              {
-                "metricNamespace": "Microsoft.Sql/servers/databases",
-                "region": "eastus2",
-                "resourceGroup": "RSGREU2APCSC01",
-                "resourceName": "msqleu2apcsc01/master",
-                "subscription": "da57100c-1273-40e3-bc9c-1696bae04d4f"
+                "resourceGroup": "RSGREU2AUTHC02",
+                "resourceName": "codbeu2authc02",
+                "subscription": "9bf3f604-5bca-4c0d-a677-1e4b2fa70732"
               }
             ],
             "timeGrain": "auto"
@@ -931,10 +925,26 @@
           },
           "queryType": "Azure Monitor",
           "refId": "A",
-          "subscription": "da57100c-1273-40e3-bc9c-1696bae04d4f"
+          "subscription": "9bf3f604-5bca-4c0d-a677-1e4b2fa70732"
         }
       ],
-      "title": "Sessions",
+      "title": "Total requests",
+      "transformations": [
+        {
+          "id": "calculateField",
+          "options": {
+            "binary": {
+              "left": "Total Requests 1",
+              "right": "Total Requests 2"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": true
+          }
+        }
+      ],
       "type": "stat"
     },
     {
@@ -960,7 +970,7 @@
               }
             ]
           },
-          "unit": "dtdurationms"
+          "unit": "short"
         },
         "overrides": []
       },
@@ -970,7 +980,7 @@
         "x": 7,
         "y": 10.25
       },
-      "id": 41,
+      "id": 46,
       "options": {
         "colorMode": "background",
         "graphMode": "area",
@@ -984,11 +994,11 @@
           "fields": "",
           "values": false
         },
-        "showPercentChange": false,
+        "showPercentChange": true,
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.1.0-71516",
+      "pluginVersion": "11.2.0-72343",
       "targets": [
         {
           "azureMonitor": {
@@ -1004,23 +1014,16 @@
               86400000
             ],
             "dimensionFilters": [],
-            "metricName": "connection_successful",
-            "metricNamespace": "microsoft.sql/servers/databases",
+            "metricName": "TotalRequestUnits",
+            "metricNamespace": "microsoft.documentdb/databaseaccounts",
             "region": "eastus2",
             "resources": [
               {
-                "metricNamespace": "microsoft.sql/servers/databases",
+                "metricNamespace": "Microsoft.DocumentDB/databaseAccounts",
                 "region": "eastus2",
-                "resourceGroup": "RSGREU2APCSC01",
-                "resourceName": "msqleu2apcsc01/dbsqleu2apcsc01",
-                "subscription": "da57100c-1273-40e3-bc9c-1696bae04d4f"
-              },
-              {
-                "metricNamespace": "Microsoft.Sql/servers/databases",
-                "region": "eastus2",
-                "resourceGroup": "RSGREU2APCSC01",
-                "resourceName": "msqleu2apcsc01/master",
-                "subscription": "da57100c-1273-40e3-bc9c-1696bae04d4f"
+                "resourceGroup": "RSGREU2AUTHC02",
+                "resourceName": "codbeu2authc02",
+                "subscription": "9bf3f604-5bca-4c0d-a677-1e4b2fa70732"
               }
             ],
             "timeGrain": "auto"
@@ -1031,10 +1034,26 @@
           },
           "queryType": "Azure Monitor",
           "refId": "A",
-          "subscription": "da57100c-1273-40e3-bc9c-1696bae04d4f"
+          "subscription": "9bf3f604-5bca-4c0d-a677-1e4b2fa70732"
         }
       ],
-      "title": "Successful connections",
+      "title": "Request units",
+      "transformations": [
+        {
+          "id": "calculateField",
+          "options": {
+            "binary": {
+              "left": "Total Request Units 1",
+              "right": "Total Request Units 2"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": true
+          }
+        }
+      ],
       "type": "stat"
     },
     {
@@ -1046,10 +1065,11 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "yellow",
             "mode": "thresholds"
           },
           "mappings": [],
+          "max": 1000,
+          "min": 0,
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -1069,7 +1089,7 @@
         "x": 9,
         "y": 10.25
       },
-      "id": 42,
+      "id": 47,
       "options": {
         "colorMode": "background",
         "graphMode": "area",
@@ -1083,36 +1103,32 @@
           "fields": "",
           "values": false
         },
-        "showPercentChange": false,
+        "showPercentChange": true,
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.1.0-71516",
+      "pluginVersion": "11.2.0-72343",
       "targets": [
         {
           "azureMonitor": {
-            "aggregation": "Total",
+            "aggregation": "Average",
             "allowedTimeGrainsMs": [
               60000,
               300000,
-              900000,
-              1800000,
               3600000,
-              21600000,
-              43200000,
               86400000
             ],
             "dimensionFilters": [],
-            "metricName": "connection_failed",
-            "metricNamespace": "microsoft.sql/servers/databases",
+            "metricName": "ServerSideLatency",
+            "metricNamespace": "microsoft.documentdb/databaseaccounts",
             "region": "eastus2",
             "resources": [
               {
-                "metricNamespace": "microsoft.sql/servers/databases",
+                "metricNamespace": "microsoft.documentdb/databaseaccounts",
                 "region": "eastus2",
-                "resourceGroup": "RSGREU2APCSC01",
-                "resourceName": "msqleu2apcsc01/dbsqleu2apcsc01",
-                "subscription": "da57100c-1273-40e3-bc9c-1696bae04d4f"
+                "resourceGroup": "RSGREU2AUTHC02",
+                "resourceName": "codbeu2authc02",
+                "subscription": "9bf3f604-5bca-4c0d-a677-1e4b2fa70732"
               }
             ],
             "timeGrain": "auto"
@@ -1123,10 +1139,26 @@
           },
           "queryType": "Azure Monitor",
           "refId": "A",
-          "subscription": "da57100c-1273-40e3-bc9c-1696bae04d4f"
+          "subscription": "9bf3f604-5bca-4c0d-a677-1e4b2fa70732"
         }
       ],
-      "title": "Failed connections (System errors)",
+      "title": "Response time",
+      "transformations": [
+        {
+          "id": "calculateField",
+          "options": {
+            "binary": {
+              "left": "Server Side Latency 1",
+              "right": "Server Side Latency 2"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": true
+          }
+        }
+      ],
       "type": "stat"
     },
     {
@@ -1149,14 +1181,10 @@
               {
                 "color": "green",
                 "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
               }
             ]
           },
-          "unit": "/min"
+          "unit": "percent"
         },
         "overrides": []
       },
@@ -1166,7 +1194,7 @@
         "x": 11,
         "y": 10.25
       },
-      "id": 43,
+      "id": 48,
       "options": {
         "colorMode": "background",
         "graphMode": "area",
@@ -1180,36 +1208,29 @@
           "fields": "",
           "values": false
         },
-        "showPercentChange": false,
+        "showPercentChange": true,
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.1.0-71516",
+      "pluginVersion": "11.2.0-72343",
       "targets": [
         {
           "azureMonitor": {
-            "aggregation": "Total",
+            "aggregation": "Average",
             "allowedTimeGrainsMs": [
-              60000,
-              300000,
-              900000,
-              1800000,
-              3600000,
-              21600000,
-              43200000,
-              86400000
+              3600000
             ],
             "dimensionFilters": [],
-            "metricName": "connection_failed_user_error",
-            "metricNamespace": "microsoft.sql/servers/databases",
+            "metricName": "ServiceAvailability",
+            "metricNamespace": "microsoft.documentdb/databaseaccounts",
             "region": "eastus2",
             "resources": [
               {
-                "metricNamespace": "Microsoft.Sql/servers/databases",
+                "metricNamespace": "Microsoft.DocumentDB/databaseAccounts",
                 "region": "eastus2",
-                "resourceGroup": "RSGREU2APCSC01",
-                "resourceName": "msqleu2apcsc01/dbsqleu2apcsc01",
-                "subscription": "da57100c-1273-40e3-bc9c-1696bae04d4f"
+                "resourceGroup": "RSGREU2AUTHC02",
+                "resourceName": "codbeu2authc02",
+                "subscription": "9bf3f604-5bca-4c0d-a677-1e4b2fa70732"
               }
             ],
             "timeGrain": "auto"
@@ -1220,16 +1241,36 @@
           },
           "queryType": "Azure Monitor",
           "refId": "A",
-          "subscription": "da57100c-1273-40e3-bc9c-1696bae04d4f"
+          "subscription": "9bf3f604-5bca-4c0d-a677-1e4b2fa70732"
         }
       ],
-      "title": "Failed connections (User errors)",
+      "title": "Availability",
+      "transformations": [
+        {
+          "id": "calculateField",
+          "options": {
+            "binary": {
+              "left": "Service Availability 1",
+              "right": "Service Availability 2"
+            },
+            "mode": "reduceRow",
+            "reduce": {
+              "include": [
+                "Service Availability 1",
+                "Service Availability 2"
+              ],
+              "reducer": "mean"
+            },
+            "replaceFields": true
+          }
+        }
+      ],
       "type": "stat"
     },
     {
       "datasource": {
         "type": "grafana-azure-monitor-datasource",
-        "uid": "edgv7ueibpvr4f"
+        "uid": "fde2fg2pnhl34d"
       },
       "description": "",
       "fieldConfig": {
@@ -1246,14 +1287,10 @@
               {
                 "color": "green",
                 "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
               }
             ]
           },
-          "unit": "/min"
+          "unit": "percent"
         },
         "overrides": []
       },
@@ -1263,7 +1300,7 @@
         "x": 13,
         "y": 10.25
       },
-      "id": 44,
+      "id": 49,
       "options": {
         "colorMode": "background",
         "graphMode": "area",
@@ -1277,50 +1314,32 @@
           "fields": "",
           "values": false
         },
-        "showPercentChange": false,
+        "showPercentChange": true,
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.1.0-71516",
-      "targets": [
+      "pluginVersion": "11.2.0-72343",
+      "title": "RU consumption",
+      "transformations": [
         {
-          "azureMonitor": {
-            "aggregation": "Total",
-            "allowedTimeGrainsMs": [
-              60000,
-              300000,
-              900000,
-              1800000,
-              3600000,
-              21600000,
-              43200000,
-              86400000
-            ],
-            "dimensionFilters": [],
-            "metricName": "blocked_by_firewall",
-            "metricNamespace": "microsoft.sql/servers/databases",
-            "region": "eastus2",
-            "resources": [
-              {
-                "metricNamespace": "microsoft.sql/servers/databases",
-                "region": "eastus2",
-                "resourceGroup": "RSGREU2APCSC01",
-                "resourceName": "msqleu2apcsc01/dbsqleu2apcsc01",
-                "subscription": "da57100c-1273-40e3-bc9c-1696bae04d4f"
-              }
-            ],
-            "timeGrain": "auto"
-          },
-          "datasource": {
-            "type": "grafana-azure-monitor-datasource",
-            "uid": "edgv7ueibpvr4f"
-          },
-          "queryType": "Azure Monitor",
-          "refId": "A",
-          "subscription": "da57100c-1273-40e3-bc9c-1696bae04d4f"
+          "id": "calculateField",
+          "options": {
+            "binary": {
+              "left": "Total Requests 1",
+              "right": "Total Requests 2"
+            },
+            "mode": "reduceRow",
+            "reduce": {
+              "include": [
+                "Normalized RU Consumption 1",
+                "Normalized RU Consumption 2"
+              ],
+              "reducer": "mean"
+            },
+            "replaceFields": true
+          }
         }
       ],
-      "title": "Firewall blocks",
       "type": "stat"
     },
     {
@@ -1378,7 +1397,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.1.0-71516",
+      "pluginVersion": "11.2.0-72343",
       "targets": [
         {
           "azureMonitor": {
@@ -1400,11 +1419,11 @@
             "region": "eastus2",
             "resources": [
               {
-                "metricNamespace": "microsoft.cache/redis",
+                "metricNamespace": "Microsoft.Cache/Redis",
                 "region": "eastus2",
-                "resourceGroup": "RSGREU2APCSC01",
-                "resourceName": "redieu2apcsc01",
-                "subscription": "da57100c-1273-40e3-bc9c-1696bae04d4f"
+                "resourceGroup": "RSGREU2NTLCC01",
+                "resourceName": "redieu2ntlcc02",
+                "subscription": "918847a9-b797-4132-959b-939175cb64b4"
               }
             ],
             "timeGrain": "auto",
@@ -1416,7 +1435,7 @@
           },
           "queryType": "Azure Monitor",
           "refId": "A",
-          "subscription": "da57100c-1273-40e3-bc9c-1696bae04d4f"
+          "subscription": "918847a9-b797-4132-959b-939175cb64b4"
         }
       ],
       "title": "No. of evicted keys",
@@ -1476,7 +1495,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.1.0-71516",
+      "pluginVersion": "11.2.0-72343",
       "targets": [
         {
           "azureMonitor": {
@@ -1499,9 +1518,9 @@
               {
                 "metricNamespace": "Microsoft.Cache/Redis",
                 "region": "eastus2",
-                "resourceGroup": "RSGREU2APCSC01",
-                "resourceName": "redieu2apcsc01",
-                "subscription": "da57100c-1273-40e3-bc9c-1696bae04d4f"
+                "resourceGroup": "RSGREU2NTLCC01",
+                "resourceName": "redieu2ntlcc02",
+                "subscription": "918847a9-b797-4132-959b-939175cb64b4"
               }
             ],
             "timeGrain": "auto"
@@ -1512,7 +1531,7 @@
           },
           "queryType": "Azure Monitor",
           "refId": "A",
-          "subscription": "da57100c-1273-40e3-bc9c-1696bae04d4f"
+          "subscription": "918847a9-b797-4132-959b-939175cb64b4"
         }
       ],
       "title": "No. of expired keys",
@@ -1572,7 +1591,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.1.0-71516",
+      "pluginVersion": "11.2.0-72343",
       "targets": [
         {
           "azureMonitor": {
@@ -1595,9 +1614,9 @@
               {
                 "metricNamespace": "Microsoft.Cache/Redis",
                 "region": "eastus2",
-                "resourceGroup": "RSGREU2APCSC01",
-                "resourceName": "redieu2apcsc01",
-                "subscription": "da57100c-1273-40e3-bc9c-1696bae04d4f"
+                "resourceGroup": "RSGREU2NTLCC01",
+                "resourceName": "redieu2ntlcc02",
+                "subscription": "918847a9-b797-4132-959b-939175cb64b4"
               }
             ],
             "timeGrain": "auto"
@@ -1608,7 +1627,7 @@
           },
           "queryType": "Azure Monitor",
           "refId": "A",
-          "subscription": "da57100c-1273-40e3-bc9c-1696bae04d4f"
+          "subscription": "918847a9-b797-4132-959b-939175cb64b4"
         }
       ],
       "title": "Total no. of keys",
@@ -1626,21 +1645,16 @@
             "mode": "thresholds"
           },
           "mappings": [],
-          "min": 0,
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
                 "color": "green",
                 "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
               }
             ]
           },
-          "unit": "percentunit"
+          "unit": "bytes"
         },
         "overrides": []
       },
@@ -1650,7 +1664,7 @@
         "x": 5,
         "y": 14.25
       },
-      "id": 8,
+      "id": 50,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -1672,39 +1686,28 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.1.0-71516",
+      "pluginVersion": "11.2.0-72343",
       "targets": [
         {
           "azureMonitor": {
-            "aggregation": "Average",
+            "aggregation": "Total",
             "allowedTimeGrainsMs": [
-              60000,
               300000,
               900000,
               1800000,
-              3600000,
-              21600000,
-              43200000,
-              86400000
+              3600000
             ],
             "dimensionFilters": [],
-            "metricName": "cpu_percent",
-            "metricNamespace": "microsoft.sql/servers/databases",
+            "metricName": "DataUsage",
+            "metricNamespace": "microsoft.documentdb/databaseaccounts",
             "region": "eastus2",
             "resources": [
               {
-                "metricNamespace": "microsoft.sql/servers/databases",
+                "metricNamespace": "Microsoft.DocumentDB/databaseAccounts",
                 "region": "eastus2",
-                "resourceGroup": "RSGREU2APCSC01",
-                "resourceName": "msqleu2apcsc01/dbsqleu2apcsc01",
-                "subscription": "da57100c-1273-40e3-bc9c-1696bae04d4f"
-              },
-              {
-                "metricNamespace": "Microsoft.Sql/servers/databases",
-                "region": "eastus2",
-                "resourceGroup": "RSGREU2APCSC01",
-                "resourceName": "msqleu2apcsc01/master",
-                "subscription": "da57100c-1273-40e3-bc9c-1696bae04d4f"
+                "resourceGroup": "RSGREU2AUTHC02",
+                "resourceName": "codbeu2authc02",
+                "subscription": "9bf3f604-5bca-4c0d-a677-1e4b2fa70732"
               }
             ],
             "timeGrain": "auto"
@@ -1715,10 +1718,26 @@
           },
           "queryType": "Azure Monitor",
           "refId": "A",
-          "subscription": "da57100c-1273-40e3-bc9c-1696bae04d4f"
+          "subscription": "9bf3f604-5bca-4c0d-a677-1e4b2fa70732"
         }
       ],
-      "title": "CPU percentage",
+      "title": "Data usage",
+      "transformations": [
+        {
+          "id": "calculateField",
+          "options": {
+            "binary": {
+              "left": "Data Usage 1",
+              "right": "Data Usage 2"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": true
+          }
+        }
+      ],
       "type": "stat"
     },
     {
@@ -1730,7 +1749,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "fixed"
+            "mode": "thresholds"
           },
           "mappings": [],
           "thresholds": {
@@ -1739,10 +1758,6 @@
               {
                 "color": "green",
                 "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
               }
             ]
           },
@@ -1756,7 +1771,7 @@
         "x": 8,
         "y": 14.25
       },
-      "id": 14,
+      "id": 51,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -1771,42 +1786,35 @@
           "values": false
         },
         "showPercentChange": false,
+        "text": {
+          "titleSize": 15,
+          "valueSize": 15
+        },
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.1.0-71516",
+      "pluginVersion": "11.2.0-72343",
       "targets": [
         {
           "azureMonitor": {
-            "aggregation": "Maximum",
+            "aggregation": "Total",
             "allowedTimeGrainsMs": [
-              60000,
               300000,
               900000,
               1800000,
-              3600000,
-              21600000,
-              43200000,
-              86400000
+              3600000
             ],
             "dimensionFilters": [],
-            "metricName": "storage",
-            "metricNamespace": "microsoft.sql/servers/databases",
+            "metricName": "IndexUsage",
+            "metricNamespace": "microsoft.documentdb/databaseaccounts",
             "region": "eastus2",
             "resources": [
               {
-                "metricNamespace": "microsoft.sql/servers/databases",
+                "metricNamespace": "Microsoft.DocumentDB/databaseAccounts",
                 "region": "eastus2",
-                "resourceGroup": "RSGREU2APCSC01",
-                "resourceName": "msqleu2apcsc01/dbsqleu2apcsc01",
-                "subscription": "da57100c-1273-40e3-bc9c-1696bae04d4f"
-              },
-              {
-                "metricNamespace": "Microsoft.Sql/servers/databases",
-                "region": "eastus2",
-                "resourceGroup": "RSGREU2APCSC01",
-                "resourceName": "msqleu2apcsc01/master",
-                "subscription": "da57100c-1273-40e3-bc9c-1696bae04d4f"
+                "resourceGroup": "RSGREU2AUTHC02",
+                "resourceName": "codbeu2authc02",
+                "subscription": "9bf3f604-5bca-4c0d-a677-1e4b2fa70732"
               }
             ],
             "timeGrain": "auto"
@@ -1817,216 +1825,123 @@
           },
           "queryType": "Azure Monitor",
           "refId": "A",
-          "subscription": "da57100c-1273-40e3-bc9c-1696bae04d4f"
+          "subscription": "9bf3f604-5bca-4c0d-a677-1e4b2fa70732"
         }
       ],
-      "title": "Total database size",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "grafana-azure-monitor-datasource",
-        "uid": "edgv7ueibpvr4f"
-      },
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "percentunit"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 5,
-        "w": 2,
-        "x": 11,
-        "y": 14.25
-      },
-      "id": 13,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "percentChangeColorMode": "standard",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showPercentChange": false,
-        "textMode": "auto",
-        "wideLayout": true
-      },
-      "pluginVersion": "11.1.0-71516",
-      "targets": [
-        {
-          "azureMonitor": {
-            "aggregation": "Maximum",
-            "allowedTimeGrainsMs": [
-              60000,
-              300000,
-              900000,
-              1800000,
-              3600000,
-              21600000,
-              43200000,
-              86400000
-            ],
-            "dimensionFilters": [],
-            "metricName": "storage_percent",
-            "metricNamespace": "microsoft.sql/servers/databases",
-            "region": "eastus2",
-            "resources": [
-              {
-                "metricNamespace": "microsoft.sql/servers/databases",
-                "region": "eastus2",
-                "resourceGroup": "RSGREU2APCSC01",
-                "resourceName": "msqleu2apcsc01/dbsqleu2apcsc01",
-                "subscription": "da57100c-1273-40e3-bc9c-1696bae04d4f"
-              },
-              {
-                "metricNamespace": "Microsoft.Sql/servers/databases",
-                "region": "eastus2",
-                "resourceGroup": "RSGREU2APCSC01",
-                "resourceName": "msqleu2apcsc01/master",
-                "subscription": "da57100c-1273-40e3-bc9c-1696bae04d4f"
-              }
-            ],
-            "timeGrain": "auto"
-          },
-          "datasource": {
-            "type": "grafana-azure-monitor-datasource",
-            "uid": "edgv7ueibpvr4f"
-          },
-          "queryType": "Azure Monitor",
-          "refId": "A",
-          "subscription": "da57100c-1273-40e3-bc9c-1696bae04d4f"
-        }
-      ],
-      "title": "Database size percentage",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "grafana-azure-monitor-datasource",
-        "uid": "edgv7ueibpvr4f"
-      },
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "percentunit"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 5,
-        "w": 2,
-        "x": 13,
-        "y": 14.25
-      },
-      "id": 21,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "percentChangeColorMode": "standard",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showPercentChange": false,
-        "textMode": "auto",
-        "wideLayout": true
-      },
-      "pluginVersion": "11.1.0-71516",
-      "targets": [
-        {
-          "azureMonitor": {
-            "aggregation": "Average",
-            "allowedTimeGrainsMs": [
-              60000,
-              300000,
-              900000,
-              1800000,
-              3600000,
-              21600000,
-              43200000,
-              86400000
-            ],
-            "dimensionFilters": [],
-            "metricName": "dtu_consumption_percent",
-            "metricNamespace": "microsoft.sql/servers/databases",
-            "region": "eastus2",
-            "resources": [
-              {
-                "metricNamespace": "microsoft.sql/servers/databases",
-                "region": "eastus2",
-                "resourceGroup": "RSGREU2APCSC01",
-                "resourceName": "msqleu2apcsc01/master",
-                "subscription": "da57100c-1273-40e3-bc9c-1696bae04d4f"
-              }
-            ],
-            "timeGrain": "auto"
-          },
-          "datasource": {
-            "type": "grafana-azure-monitor-datasource",
-            "uid": "edgv7ueibpvr4f"
-          },
-          "queryType": "Azure Monitor",
-          "refId": "A",
-          "subscription": "da57100c-1273-40e3-bc9c-1696bae04d4f"
-        }
-      ],
-      "title": "DTU percentage",
+      "title": "Index usage",
       "transformations": [
         {
           "id": "calculateField",
           "options": {
-            "alias": "4xx and 5xx errors",
             "binary": {
-              "left": "sum(http_server_requests_count{status=~\"400|401|404|409|412|500|503\"})",
-              "operator": "/",
-              "right": "sum(http_server_requests_count)"
+              "left": "Index Usage 1",
+              "right": "Index Usage 2"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": true
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-azure-monitor-datasource",
+        "uid": "edgv7ueibpvr4f"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 11,
+        "y": 14.25
+      },
+      "id": 53,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "text": {
+          "titleSize": 15,
+          "valueSize": 15
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.2.0-72343",
+      "targets": [
+        {
+          "azureMonitor": {
+            "aggregation": "Total",
+            "allowedTimeGrainsMs": [
+              300000,
+              3600000,
+              86400000
+            ],
+            "dimensionFilters": [],
+            "metricName": "DocumentCount",
+            "metricNamespace": "microsoft.documentdb/databaseaccounts",
+            "region": "eastus2",
+            "resources": [
+              {
+                "metricNamespace": "Microsoft.DocumentDB/databaseAccounts",
+                "region": "eastus2",
+                "resourceGroup": "RSGREU2NTLCC01",
+                "resourceName": "codbeu2ntlcc01",
+                "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+              }
+            ],
+            "timeGrain": "auto"
+          },
+          "datasource": {
+            "type": "grafana-azure-monitor-datasource",
+            "uid": "edgv7ueibpvr4f"
+          },
+          "queryType": "Azure Monitor",
+          "refId": "A",
+          "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+        }
+      ],
+      "title": "Document count",
+      "transformations": [
+        {
+          "id": "calculateField",
+          "options": {
+            "binary": {
+              "left": "Document Count 1",
+              "right": "Document Count 2"
             },
             "mode": "binary",
             "reduce": {
@@ -2091,7 +2006,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.1.0-71516",
+      "pluginVersion": "11.2.0-72343",
       "targets": [
         {
           "azureMonitor": {
@@ -2114,9 +2029,9 @@
               {
                 "metricNamespace": "Microsoft.Cache/Redis",
                 "region": "eastus2",
-                "resourceGroup": "RSGREU2APCSC01",
-                "resourceName": "redieu2apcsc01",
-                "subscription": "da57100c-1273-40e3-bc9c-1696bae04d4f"
+                "resourceGroup": "RSGREU2NTLCC01",
+                "resourceName": "redieu2ntlcc02",
+                "subscription": "918847a9-b797-4132-959b-939175cb64b4"
               }
             ],
             "timeGrain": "auto"
@@ -2127,7 +2042,7 @@
           },
           "queryType": "Azure Monitor",
           "refId": "A",
-          "subscription": "da57100c-1273-40e3-bc9c-1696bae04d4f"
+          "subscription": "918847a9-b797-4132-959b-939175cb64b4"
         }
       ],
       "title": "Used memory",
@@ -2186,7 +2101,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.1.0-71516",
+      "pluginVersion": "11.2.0-72343",
       "targets": [
         {
           "azureMonitor": {
@@ -2209,9 +2124,9 @@
               {
                 "metricNamespace": "Microsoft.Cache/Redis",
                 "region": "eastus2",
-                "resourceGroup": "RSGREU2APCSC01",
-                "resourceName": "redieu2apcsc01",
-                "subscription": "da57100c-1273-40e3-bc9c-1696bae04d4f"
+                "resourceGroup": "RSGREU2NTLCC01",
+                "resourceName": "redieu2ntlcc02",
+                "subscription": "918847a9-b797-4132-959b-939175cb64b4"
               }
             ],
             "timeGrain": "auto"
@@ -2222,7 +2137,7 @@
           },
           "queryType": "Azure Monitor",
           "refId": "A",
-          "subscription": "da57100c-1273-40e3-bc9c-1696bae04d4f"
+          "subscription": "918847a9-b797-4132-959b-939175cb64b4"
         }
       ],
       "title": "Used memory RSS",
@@ -2285,7 +2200,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.1.0-71516",
+      "pluginVersion": "11.2.0-72343",
       "targets": [
         {
           "azureMonitor": {
@@ -2308,9 +2223,9 @@
               {
                 "metricNamespace": "Microsoft.Cache/Redis",
                 "region": "eastus2",
-                "resourceGroup": "RSGREU2APCSC01",
-                "resourceName": "redieu2apcsc01",
-                "subscription": "da57100c-1273-40e3-bc9c-1696bae04d4f"
+                "resourceGroup": "RSGREU2NTLCC01",
+                "resourceName": "redieu2ntlcc02",
+                "subscription": "918847a9-b797-4132-959b-939175cb64b4"
               }
             ],
             "timeGrain": "auto"
@@ -2321,7 +2236,7 @@
           },
           "queryType": "Azure Monitor",
           "refId": "A",
-          "subscription": "da57100c-1273-40e3-bc9c-1696bae04d4f"
+          "subscription": "918847a9-b797-4132-959b-939175cb64b4"
         }
       ],
       "title": "Processor time",
@@ -2423,7 +2338,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.1.0-71516",
+      "pluginVersion": "11.2.0-72343",
       "targets": [
         {
           "datasource": {
@@ -2540,7 +2455,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.1.0-71516",
+      "pluginVersion": "11.2.0-72343",
       "targets": [
         {
           "datasource": {
@@ -2601,11 +2516,35 @@
       },
       "gridPos": {
         "h": 1.25,
-        "w": 9,
+        "w": 10,
         "x": 0,
         "y": 19.25
       },
-      "id": 45,
+      "id": 30,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<center><h4>Database</h4></center>",
+        "mode": "html"
+      },
+      "pluginVersion": "11.2.0-72343",
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "$${promcert}"
+      },
+      "gridPos": {
+        "h": 1.25,
+        "w": 9,
+        "x": 10,
+        "y": 19.25
+      },
+      "id": 54,
       "options": {
         "code": {
           "language": "plaintext",
@@ -2615,8 +2554,1588 @@
         "content": "<center><h4>Storage account</h4></center>",
         "mode": "html"
       },
-      "pluginVersion": "11.1.0-71516",
+      "pluginVersion": "11.2.0-72343",
       "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "grafana-azure-monitor-datasource",
+        "uid": "edgv7ueibpvr4f"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "reqpm"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 2,
+        "x": 0,
+        "y": 20.5
+      },
+      "id": 62,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.2.0-72343",
+      "targets": [
+        {
+          "azureMonitor": {
+            "aggregation": "Average",
+            "allowedTimeGrainsMs": [
+              60000,
+              300000,
+              900000,
+              1800000,
+              3600000,
+              21600000,
+              43200000,
+              86400000
+            ],
+            "dimensionFilters": [],
+            "metricName": "sessions_count",
+            "metricNamespace": "microsoft.sql/servers/databases",
+            "region": "eastus2",
+            "resources": [
+              {
+                "metricNamespace": "Microsoft.Sql/servers/databases",
+                "region": "eastus2",
+                "resourceGroup": "RSGREU2NTLCC01",
+                "resourceName": "msqleu2ntlcc01/MSQLEU2NTLCCINT01",
+                "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+              },
+              {
+                "metricNamespace": "Microsoft.Sql/servers/databases",
+                "region": "eastus2",
+                "resourceGroup": "RSGREU2NTLCC01",
+                "resourceName": "msqleu2ntlcc02/msqleu2ntlcc02",
+                "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+              },
+              {
+                "metricNamespace": "Microsoft.Sql/servers/databases",
+                "region": "eastus2",
+                "resourceGroup": "RSGREU2NTLCC01",
+                "resourceName": "msqleu2ntlcc03/dbsqleu2ntlcint03",
+                "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+              }
+            ],
+            "timeGrain": "auto"
+          },
+          "datasource": {
+            "type": "grafana-azure-monitor-datasource",
+            "uid": "edgv7ueibpvr4f"
+          },
+          "queryType": "Azure Monitor",
+          "refId": "A",
+          "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+        }
+      ],
+      "title": "Sessions",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-azure-monitor-datasource",
+        "uid": "edgv7ueibpvr4f"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "max": 1000,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "dtdurationms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 2,
+        "x": 2,
+        "y": 20.5
+      },
+      "id": 63,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.2.0-72343",
+      "targets": [
+        {
+          "azureMonitor": {
+            "aggregation": "Total",
+            "allowedTimeGrainsMs": [
+              60000,
+              300000,
+              900000,
+              1800000,
+              3600000,
+              21600000,
+              43200000,
+              86400000
+            ],
+            "dimensionFilters": [],
+            "metricName": "connection_successful",
+            "metricNamespace": "microsoft.sql/servers/databases",
+            "region": "eastus2",
+            "resources": [
+              {
+                "metricNamespace": "Microsoft.Sql/servers/databases",
+                "region": "eastus2",
+                "resourceGroup": "RSGREU2NTLCD01",
+                "resourceName": "msqleu2ntlcd01/MSQLEU2NTLCDINT01",
+                "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+              },
+              {
+                "metricNamespace": "Microsoft.Sql/servers/databases",
+                "region": "eastus2",
+                "resourceGroup": "rsgreu2ntlcd01",
+                "resourceName": "msqleu2ntlcd02/dbsqleu2ntlcint02",
+                "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+              },
+              {
+                "metricNamespace": "Microsoft.Sql/servers/databases",
+                "region": "eastus2",
+                "resourceGroup": "RSGREU2NTLCD01",
+                "resourceName": "msqleu2ntlcd03/dbsqleu2ntlcint03",
+                "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+              },
+              {
+                "metricNamespace": "Microsoft.Sql/servers/databases",
+                "region": "eastus2",
+                "resourceGroup": "RSGREU2NTLCD01",
+                "resourceName": "msqleu2ntlcd04/dbsqleu2ntlcint04",
+                "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+              }
+            ],
+            "timeGrain": "auto"
+          },
+          "datasource": {
+            "type": "grafana-azure-monitor-datasource",
+            "uid": "edgv7ueibpvr4f"
+          },
+          "queryType": "Azure Monitor",
+          "refId": "A",
+          "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+        }
+      ],
+      "title": "Successful connections",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-azure-monitor-datasource",
+        "uid": "edgv7ueibpvr4f"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "yellow",
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 2,
+        "x": 4,
+        "y": 20.5
+      },
+      "id": 64,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.2.0-72343",
+      "targets": [
+        {
+          "azureMonitor": {
+            "aggregation": "Total",
+            "allowedTimeGrainsMs": [
+              60000,
+              300000,
+              900000,
+              1800000,
+              3600000,
+              21600000,
+              43200000,
+              86400000
+            ],
+            "dimensionFilters": [],
+            "metricName": "connection_failed",
+            "metricNamespace": "microsoft.sql/servers/databases",
+            "region": "eastus2",
+            "resources": [
+              {
+                "metricNamespace": "Microsoft.Sql/servers/databases",
+                "region": "eastus2",
+                "resourceGroup": "RSGREU2NTLCC01",
+                "resourceName": "msqleu2ntlcc01/MSQLEU2NTLCCINT01",
+                "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+              },
+              {
+                "metricNamespace": "Microsoft.Sql/servers/databases",
+                "region": "eastus2",
+                "resourceGroup": "RSGREU2NTLCC01",
+                "resourceName": "msqleu2ntlcc02/msqleu2ntlcc02",
+                "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+              },
+              {
+                "metricNamespace": "Microsoft.Sql/servers/databases",
+                "region": "eastus2",
+                "resourceGroup": "RSGREU2NTLCC01",
+                "resourceName": "msqleu2ntlcc03/dbsqleu2ntlcint03",
+                "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+              }
+            ],
+            "timeGrain": "auto"
+          },
+          "datasource": {
+            "type": "grafana-azure-monitor-datasource",
+            "uid": "edgv7ueibpvr4f"
+          },
+          "queryType": "Azure Monitor",
+          "refId": "A",
+          "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+        }
+      ],
+      "title": "Failed connections (System errors)",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-azure-monitor-datasource",
+        "uid": "edgv7ueibpvr4f"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "max": 1000,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "/min"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 2,
+        "x": 6,
+        "y": 20.5
+      },
+      "id": 65,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.2.0-72343",
+      "targets": [
+        {
+          "azureMonitor": {
+            "aggregation": "Total",
+            "allowedTimeGrainsMs": [
+              60000,
+              300000,
+              900000,
+              1800000,
+              3600000,
+              21600000,
+              43200000,
+              86400000
+            ],
+            "dimensionFilters": [],
+            "metricName": "connection_failed_user_error",
+            "metricNamespace": "microsoft.sql/servers/databases",
+            "region": "eastus2",
+            "resources": [
+              {
+                "metricNamespace": "Microsoft.Sql/servers/databases",
+                "region": "eastus2",
+                "resourceGroup": "RSGREU2NTLCC01",
+                "resourceName": "msqleu2ntlcc01/MSQLEU2NTLCCINT01",
+                "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+              },
+              {
+                "metricNamespace": "Microsoft.Sql/servers/databases",
+                "region": "eastus2",
+                "resourceGroup": "RSGREU2NTLCC01",
+                "resourceName": "msqleu2ntlcc02/msqleu2ntlcc02",
+                "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+              },
+              {
+                "metricNamespace": "Microsoft.Sql/servers/databases",
+                "region": "eastus2",
+                "resourceGroup": "RSGREU2NTLCC01",
+                "resourceName": "msqleu2ntlcc03/dbsqleu2ntlcint03",
+                "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+              }
+            ],
+            "timeGrain": "auto"
+          },
+          "datasource": {
+            "type": "grafana-azure-monitor-datasource",
+            "uid": "edgv7ueibpvr4f"
+          },
+          "queryType": "Azure Monitor",
+          "refId": "A",
+          "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+        }
+      ],
+      "title": "Failed connections (User errors)",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-azure-monitor-datasource",
+        "uid": "edgv7ueibpvr4f"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "max": 1000,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "/min"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 2,
+        "x": 8,
+        "y": 20.5
+      },
+      "id": 66,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.2.0-72343",
+      "targets": [
+        {
+          "azureMonitor": {
+            "aggregation": "Total",
+            "allowedTimeGrainsMs": [
+              60000,
+              300000,
+              900000,
+              1800000,
+              3600000,
+              21600000,
+              43200000,
+              86400000
+            ],
+            "dimensionFilters": [],
+            "metricName": "blocked_by_firewall",
+            "metricNamespace": "microsoft.sql/servers/databases",
+            "region": "eastus2",
+            "resources": [
+              {
+                "metricNamespace": "Microsoft.Sql/servers/databases",
+                "region": "eastus2",
+                "resourceGroup": "RSGREU2NTLCC01",
+                "resourceName": "msqleu2ntlcc03/dbsqleu2ntlcint03",
+                "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+              },
+              {
+                "metricNamespace": "Microsoft.Sql/servers/databases",
+                "region": "eastus2",
+                "resourceGroup": "RSGREU2NTLCC01",
+                "resourceName": "msqleu2ntlcc02/msqleu2ntlcc02",
+                "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+              },
+              {
+                "metricNamespace": "Microsoft.Sql/servers/databases",
+                "region": "eastus2",
+                "resourceGroup": "RSGREU2NTLCC01",
+                "resourceName": "msqleu2ntlcc01/MSQLEU2NTLCCINT01",
+                "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+              }
+            ],
+            "timeGrain": "auto"
+          },
+          "datasource": {
+            "type": "grafana-azure-monitor-datasource",
+            "uid": "edgv7ueibpvr4f"
+          },
+          "queryType": "Azure Monitor",
+          "refId": "A",
+          "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+        }
+      ],
+      "title": "Firewall blocks",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-azure-monitor-datasource",
+        "uid": "edgv7ueibpvr4f"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "fixed"
+          },
+          "decimals": 0,
+          "mappings": [],
+          "max": 10000,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 3,
+        "x": 10,
+        "y": 20.5
+      },
+      "id": 55,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.2.0-72343",
+      "targets": [
+        {
+          "azureMonitor": {
+            "aggregation": "Average",
+            "alias": "",
+            "allowedTimeGrainsMs": [
+              3600000
+            ],
+            "dimensionFilters": [],
+            "metricName": "UsedCapacity",
+            "metricNamespace": "microsoft.storage/storageaccounts",
+            "region": "eastus2",
+            "resources": [
+              {
+                "metricNamespace": "Microsoft.Storage/storageAccounts",
+                "region": "eastus2",
+                "resourceGroup": "RSGREU2NTLCC01",
+                "resourceName": "staceu2ntlcfnctc01",
+                "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+              }
+            ],
+            "timeGrain": "auto",
+            "top": ""
+          },
+          "datasource": {
+            "type": "grafana-azure-monitor-datasource",
+            "uid": "edgv7ueibpvr4f"
+          },
+          "queryType": "Azure Monitor",
+          "refId": "A",
+          "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+        }
+      ],
+      "title": "Capacity used",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-azure-monitor-datasource",
+        "uid": "edgv7ueibpvr4f"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "fixed"
+          },
+          "fieldMinMax": false,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 3,
+        "x": 13,
+        "y": 20.5
+      },
+      "id": 56,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.2.0-72343",
+      "targets": [
+        {
+          "azureMonitor": {
+            "aggregation": "Total",
+            "allowedTimeGrainsMs": [
+              60000,
+              300000,
+              900000,
+              1800000,
+              3600000,
+              21600000,
+              43200000,
+              86400000
+            ],
+            "dimensionFilters": [],
+            "metricName": "Transactions",
+            "metricNamespace": "microsoft.storage/storageaccounts",
+            "region": "eastus2",
+            "resources": [
+              {
+                "metricNamespace": "Microsoft.Storage/storageAccounts",
+                "region": "eastus2",
+                "resourceGroup": "RSGREU2NTLCC01",
+                "resourceName": "staceu2ntlcfnctc01",
+                "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+              }
+            ],
+            "timeGrain": "auto"
+          },
+          "datasource": {
+            "type": "grafana-azure-monitor-datasource",
+            "uid": "edgv7ueibpvr4f"
+          },
+          "queryType": "Azure Monitor",
+          "refId": "A",
+          "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+        }
+      ],
+      "title": "Transactions",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-azure-monitor-datasource",
+        "uid": "edgv7ueibpvr4f"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "fixed"
+          },
+          "decimals": 0,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 3,
+        "x": 16,
+        "y": 20.5
+      },
+      "id": 57,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.2.0-72343",
+      "targets": [
+        {
+          "azureMonitor": {
+            "aggregation": "Total",
+            "allowedTimeGrainsMs": [
+              60000,
+              300000,
+              900000,
+              1800000,
+              3600000,
+              21600000,
+              43200000,
+              86400000
+            ],
+            "dimensionFilters": [],
+            "metricName": "Ingress",
+            "metricNamespace": "microsoft.storage/storageaccounts",
+            "region": "eastus2",
+            "resources": [
+              {
+                "metricNamespace": "Microsoft.Storage/storageAccounts",
+                "region": "eastus2",
+                "resourceGroup": "RSGREU2NTLCC01",
+                "resourceName": "staceu2ntlcfnctc01",
+                "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+              }
+            ],
+            "timeGrain": "auto"
+          },
+          "datasource": {
+            "type": "grafana-azure-monitor-datasource",
+            "uid": "edgv7ueibpvr4f"
+          },
+          "queryType": "Azure Monitor",
+          "refId": "A",
+          "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+        }
+      ],
+      "title": "Ingress",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-azure-monitor-datasource",
+        "uid": "edgv7ueibpvr4f"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 3,
+        "x": 0,
+        "y": 24.5
+      },
+      "id": 67,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "text": {
+          "titleSize": 15,
+          "valueSize": 15
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.2.0-72343",
+      "targets": [
+        {
+          "azureMonitor": {
+            "aggregation": "Average",
+            "allowedTimeGrainsMs": [
+              60000,
+              300000,
+              900000,
+              1800000,
+              3600000,
+              21600000,
+              43200000,
+              86400000
+            ],
+            "dimensionFilters": [],
+            "metricName": "cpu_percent",
+            "metricNamespace": "microsoft.sql/servers/databases",
+            "region": "eastus2",
+            "resources": [
+              {
+                "metricNamespace": "Microsoft.Sql/servers/databases",
+                "region": "eastus2",
+                "resourceGroup": "RSGREU2NTLCC01",
+                "resourceName": "msqleu2ntlcc01/MSQLEU2NTLCCINT01",
+                "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+              },
+              {
+                "metricNamespace": "Microsoft.Sql/servers/databases",
+                "region": "eastus2",
+                "resourceGroup": "RSGREU2NTLCC01",
+                "resourceName": "msqleu2ntlcc02/msqleu2ntlcc02",
+                "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+              },
+              {
+                "metricNamespace": "Microsoft.Sql/servers/databases",
+                "region": "eastus2",
+                "resourceGroup": "RSGREU2NTLCC01",
+                "resourceName": "msqleu2ntlcc03/dbsqleu2ntlcint03",
+                "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+              }
+            ],
+            "timeGrain": "auto"
+          },
+          "datasource": {
+            "type": "grafana-azure-monitor-datasource",
+            "uid": "edgv7ueibpvr4f"
+          },
+          "queryType": "Azure Monitor",
+          "refId": "A",
+          "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+        }
+      ],
+      "title": "CPU percentage",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-azure-monitor-datasource",
+        "uid": "edgv7ueibpvr4f"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 3,
+        "x": 3,
+        "y": 24.5
+      },
+      "id": 68,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.2.0-72343",
+      "targets": [
+        {
+          "azureMonitor": {
+            "aggregation": "Maximum",
+            "allowedTimeGrainsMs": [
+              60000,
+              300000,
+              900000,
+              1800000,
+              3600000,
+              21600000,
+              43200000,
+              86400000
+            ],
+            "dimensionFilters": [],
+            "metricName": "storage",
+            "metricNamespace": "microsoft.sql/servers/databases",
+            "region": "eastus2",
+            "resources": [
+              {
+                "metricNamespace": "Microsoft.Sql/servers/databases",
+                "region": "eastus2",
+                "resourceGroup": "RSGREU2NTLCC01",
+                "resourceName": "msqleu2ntlcc01/MSQLEU2NTLCCINT01",
+                "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+              },
+              {
+                "metricNamespace": "Microsoft.Sql/servers/databases",
+                "region": "eastus2",
+                "resourceGroup": "RSGREU2NTLCC01",
+                "resourceName": "msqleu2ntlcc02/msqleu2ntlcc02",
+                "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+              },
+              {
+                "metricNamespace": "Microsoft.Sql/servers/databases",
+                "region": "eastus2",
+                "resourceGroup": "RSGREU2NTLCC01",
+                "resourceName": "msqleu2ntlcc03/dbsqleu2ntlcint03",
+                "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+              }
+            ],
+            "timeGrain": "auto"
+          },
+          "datasource": {
+            "type": "grafana-azure-monitor-datasource",
+            "uid": "edgv7ueibpvr4f"
+          },
+          "queryType": "Azure Monitor",
+          "refId": "A",
+          "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+        }
+      ],
+      "title": "Total database size",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-azure-monitor-datasource",
+        "uid": "edgv7ueibpvr4f"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 2,
+        "x": 6,
+        "y": 24.5
+      },
+      "id": 69,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.2.0-72343",
+      "targets": [
+        {
+          "azureMonitor": {
+            "aggregation": "Maximum",
+            "allowedTimeGrainsMs": [
+              60000,
+              300000,
+              900000,
+              1800000,
+              3600000,
+              21600000,
+              43200000,
+              86400000
+            ],
+            "dimensionFilters": [],
+            "metricName": "storage_percent",
+            "metricNamespace": "microsoft.sql/servers/databases",
+            "region": "eastus2",
+            "resources": [
+              {
+                "metricNamespace": "Microsoft.Sql/servers/databases",
+                "region": "eastus2",
+                "resourceGroup": "RSGREU2NTLCC01",
+                "resourceName": "msqleu2ntlcc03/dbsqleu2ntlcint03",
+                "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+              },
+              {
+                "metricNamespace": "Microsoft.Sql/servers/databases",
+                "region": "eastus2",
+                "resourceGroup": "RSGREU2NTLCC01",
+                "resourceName": "msqleu2ntlcc02/msqleu2ntlcc02",
+                "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+              },
+              {
+                "metricNamespace": "Microsoft.Sql/servers/databases",
+                "region": "eastus2",
+                "resourceGroup": "RSGREU2NTLCC01",
+                "resourceName": "msqleu2ntlcc01/MSQLEU2NTLCCINT01",
+                "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+              }
+            ],
+            "timeGrain": "auto"
+          },
+          "datasource": {
+            "type": "grafana-azure-monitor-datasource",
+            "uid": "edgv7ueibpvr4f"
+          },
+          "queryType": "Azure Monitor",
+          "refId": "A",
+          "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+        }
+      ],
+      "title": "Database size percentage",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-azure-monitor-datasource",
+        "uid": "edgv7ueibpvr4f"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 2,
+        "x": 8,
+        "y": 24.5
+      },
+      "id": 70,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.2.0-72343",
+      "targets": [
+        {
+          "azureMonitor": {
+            "aggregation": "Average",
+            "allowedTimeGrainsMs": [
+              60000,
+              300000,
+              900000,
+              1800000,
+              3600000,
+              21600000,
+              43200000,
+              86400000
+            ],
+            "dimensionFilters": [],
+            "metricName": "dtu_consumption_percent",
+            "metricNamespace": "microsoft.sql/servers/databases",
+            "region": "eastus2",
+            "resources": [
+              {
+                "metricNamespace": "Microsoft.Sql/servers/databases",
+                "region": "eastus2",
+                "resourceGroup": "RSGREU2NTLCC01",
+                "resourceName": "msqleu2ntlcc03/dbsqleu2ntlcint03",
+                "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+              },
+              {
+                "metricNamespace": "Microsoft.Sql/servers/databases",
+                "region": "eastus2",
+                "resourceGroup": "RSGREU2NTLCC01",
+                "resourceName": "msqleu2ntlcc02/msqleu2ntlcc02",
+                "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+              },
+              {
+                "metricNamespace": "Microsoft.Sql/servers/databases",
+                "region": "eastus2",
+                "resourceGroup": "RSGREU2NTLCC01",
+                "resourceName": "msqleu2ntlcc01/MSQLEU2NTLCCINT01",
+                "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+              }
+            ],
+            "timeGrain": "auto"
+          },
+          "datasource": {
+            "type": "grafana-azure-monitor-datasource",
+            "uid": "edgv7ueibpvr4f"
+          },
+          "queryType": "Azure Monitor",
+          "refId": "A",
+          "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+        }
+      ],
+      "title": "DTU percentage",
+      "transformations": [
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "4xx and 5xx errors",
+            "binary": {
+              "left": "sum(http_server_requests_count{status=~\"400|401|404|409|412|500|503\"})",
+              "operator": "/",
+              "right": "sum(http_server_requests_count)"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": true
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-azure-monitor-datasource",
+        "uid": "edgv7ueibpvr4f"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "kbytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 10,
+        "y": 25.5
+      },
+      "id": 58,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.2.0-72343",
+      "targets": [
+        {
+          "azureMonitor": {
+            "aggregation": "Average",
+            "allowedTimeGrainsMs": [
+              60000,
+              300000,
+              900000,
+              1800000,
+              3600000,
+              21600000,
+              43200000,
+              86400000
+            ],
+            "dimensionFilters": [],
+            "metricName": "Availability",
+            "metricNamespace": "microsoft.storage/storageaccounts",
+            "region": "eastus2",
+            "resources": [
+              {
+                "metricNamespace": "Microsoft.Storage/storageAccounts",
+                "region": "eastus2",
+                "resourceGroup": "RSGREU2NTLCC01",
+                "resourceName": "staceu2ntlcfnctc01",
+                "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+              }
+            ],
+            "timeGrain": "auto"
+          },
+          "datasource": {
+            "type": "grafana-azure-monitor-datasource",
+            "uid": "edgv7ueibpvr4f"
+          },
+          "queryType": "Azure Monitor",
+          "refId": "A",
+          "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+        }
+      ],
+      "title": "Availability",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-azure-monitor-datasource",
+        "uid": "edgv7ueibpvr4f"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 8000000
+              }
+            ]
+          },
+          "unit": "deckbytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 13,
+        "y": 25.5
+      },
+      "id": 59,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.2.0-72343",
+      "targets": [
+        {
+          "azureMonitor": {
+            "aggregation": "Average",
+            "allowedTimeGrainsMs": [
+              60000,
+              300000,
+              900000,
+              1800000,
+              3600000,
+              21600000,
+              43200000,
+              86400000
+            ],
+            "dimensionFilters": [],
+            "metricName": "SuccessServerLatency",
+            "metricNamespace": "microsoft.storage/storageaccounts",
+            "region": "eastus2",
+            "resources": [
+              {
+                "metricNamespace": "Microsoft.Storage/storageAccounts",
+                "region": "eastus2",
+                "resourceGroup": "RSGREU2NTLCC01",
+                "resourceName": "staceu2ntlcfnctc01",
+                "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+              }
+            ],
+            "timeGrain": "auto"
+          },
+          "datasource": {
+            "type": "grafana-azure-monitor-datasource",
+            "uid": "edgv7ueibpvr4f"
+          },
+          "queryType": "Azure Monitor",
+          "refId": "A",
+          "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+        }
+      ],
+      "title": "Success Server Latency",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-azure-monitor-datasource",
+        "uid": "edgv7ueibpvr4f"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "dark-orange",
+                "value": 30
+              },
+              {
+                "color": "dark-red",
+                "value": 50
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 16,
+        "y": 25.5
+      },
+      "id": 60,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.2.0-72343",
+      "targets": [
+        {
+          "azureMonitor": {
+            "aggregation": "Total",
+            "allowedTimeGrainsMs": [
+              60000,
+              300000,
+              900000,
+              1800000,
+              3600000,
+              21600000,
+              43200000,
+              86400000
+            ],
+            "dimensionFilters": [],
+            "metricName": "Egress",
+            "metricNamespace": "microsoft.storage/storageaccounts",
+            "region": "eastus2",
+            "resources": [
+              {
+                "metricNamespace": "Microsoft.Storage/storageAccounts",
+                "region": "eastus2",
+                "resourceGroup": "RSGREU2NTLCC01",
+                "resourceName": "staceu2ntlcfnctc01",
+                "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+              }
+            ],
+            "timeGrain": "auto"
+          },
+          "datasource": {
+            "type": "grafana-azure-monitor-datasource",
+            "uid": "edgv7ueibpvr4f"
+          },
+          "queryType": "Azure Monitor",
+          "refId": "A",
+          "subscription": "918847a9-b797-4132-959b-939175cb64b4"
+        }
+      ],
+      "title": "Egress",
+      "type": "stat"
     },
     {
       "datasource": {
@@ -2641,8 +4160,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -2715,10 +4233,10 @@
         ]
       },
       "gridPos": {
-        "h": 10,
-        "w": 7.5,
-        "x": 9,
-        "y": 19.25
+        "h": 8,
+        "w": 8,
+        "x": 0,
+        "y": 29.5
       },
       "id": 35,
       "options": {
@@ -2735,7 +4253,7 @@
         "frameIndex": 0,
         "showHeader": true
       },
-      "pluginVersion": "11.1.0-71516",
+      "pluginVersion": "11.2.0-72343",
       "targets": [
         {
           "datasource": {
@@ -2832,8 +4350,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -2846,10 +4363,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 10,
-        "w": 7.5,
-        "x": 16.5,
-        "y": 19.25
+        "h": 8,
+        "w": 8,
+        "x": 8,
+        "y": 29.5
       },
       "id": 36,
       "options": {
@@ -2870,7 +4387,7 @@
         "sizing": "auto",
         "valueMode": "color"
       },
-      "pluginVersion": "11.1.0-71516",
+      "pluginVersion": "11.2.0-72343",
       "targets": [
         {
           "datasource": {
@@ -2893,630 +4410,6 @@
       ],
       "title": "Pods top CPU",
       "type": "bargauge"
-    },
-    {
-      "datasource": {
-        "type": "grafana-azure-monitor-datasource",
-        "uid": "edgv7ueibpvr4f"
-      },
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "fixed"
-          },
-          "decimals": 0,
-          "mappings": [],
-          "max": 10000,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "none"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 5,
-        "w": 3,
-        "x": 0,
-        "y": 20.5
-      },
-      "id": 46,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "percentChangeColorMode": "standard",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showPercentChange": false,
-        "textMode": "auto",
-        "wideLayout": true
-      },
-      "pluginVersion": "11.1.0-71516",
-      "targets": [
-        {
-          "azureMonitor": {
-            "aggregation": "Average",
-            "allowedTimeGrainsMs": [
-              3600000
-            ],
-            "dimensionFilters": [],
-            "metricName": "UsedCapacity",
-            "metricNamespace": "microsoft.storage/storageaccounts",
-            "region": "eastus2",
-            "resources": [
-              {
-                "metricNamespace": "Microsoft.Storage/storageAccounts",
-                "region": "eastus2",
-                "resourceGroup": "RSGREU2APCSC01",
-                "resourceName": "staceu2apcsbackc01",
-                "subscription": "da57100c-1273-40e3-bc9c-1696bae04d4f"
-              }
-            ],
-            "timeGrain": "auto"
-          },
-          "datasource": {
-            "type": "grafana-azure-monitor-datasource",
-            "uid": "edgv7ueibpvr4f"
-          },
-          "hide": false,
-          "queryType": "Azure Monitor",
-          "refId": "A",
-          "subscription": "da57100c-1273-40e3-bc9c-1696bae04d4f"
-        }
-      ],
-      "title": "Capacity used",
-      "transformations": [
-        {
-          "id": "calculateField",
-          "options": {
-            "alias": "total 1 y 2",
-            "binary": {
-              "left": "Used capacity 1",
-              "right": "Used capacity 2"
-            },
-            "mode": "binary",
-            "reduce": {
-              "reducer": "sum"
-            },
-            "replaceFields": true
-          }
-        },
-        {
-          "id": "calculateField",
-          "options": {
-            "alias": "total 3 y 4",
-            "binary": {
-              "left": "Used capacity 3",
-              "right": "Used capacity 4"
-            },
-            "mode": "binary",
-            "reduce": {
-              "include": [
-                "Used capacity 4"
-              ],
-              "reducer": "sum"
-            },
-            "replaceFields": true
-          }
-        },
-        {
-          "id": "calculateField",
-          "options": {
-            "binary": {
-              "left": "total 1 y 2",
-              "right": "total 3 y 4"
-            },
-            "mode": "binary",
-            "reduce": {
-              "reducer": "sum"
-            },
-            "replaceFields": true
-          }
-        }
-      ],
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "grafana-azure-monitor-datasource",
-        "uid": "edgv7ueibpvr4f"
-      },
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "fixed"
-          },
-          "fieldMinMax": false,
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "short"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 5,
-        "w": 3,
-        "x": 3,
-        "y": 20.5
-      },
-      "id": 47,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "percentChangeColorMode": "standard",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showPercentChange": false,
-        "textMode": "auto",
-        "wideLayout": true
-      },
-      "pluginVersion": "11.1.0-71516",
-      "targets": [
-        {
-          "azureMonitor": {
-            "aggregation": "Total",
-            "allowedTimeGrainsMs": [
-              60000,
-              300000,
-              900000,
-              1800000,
-              3600000,
-              21600000,
-              43200000,
-              86400000
-            ],
-            "dimensionFilters": [],
-            "metricName": "Transactions",
-            "metricNamespace": "microsoft.storage/storageaccounts",
-            "region": "eastus2",
-            "resources": [
-              {
-                "metricNamespace": "Microsoft.Storage/storageAccounts",
-                "region": "eastus2",
-                "resourceGroup": "RSGREU2APCSC01",
-                "resourceName": "staceu2apcsbackc01",
-                "subscription": "da57100c-1273-40e3-bc9c-1696bae04d4f"
-              }
-            ],
-            "timeGrain": "auto"
-          },
-          "datasource": {
-            "type": "grafana-azure-monitor-datasource",
-            "uid": "edgv7ueibpvr4f"
-          },
-          "hide": false,
-          "queryType": "Azure Monitor",
-          "refId": "A",
-          "subscription": "da57100c-1273-40e3-bc9c-1696bae04d4f"
-        }
-      ],
-      "title": "Transactions",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "grafana-azure-monitor-datasource",
-        "uid": "edgv7ueibpvr4f"
-      },
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "fixed"
-          },
-          "decimals": 0,
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "none"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 5,
-        "w": 3,
-        "x": 6,
-        "y": 20.5
-      },
-      "id": 48,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "percentChangeColorMode": "standard",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showPercentChange": false,
-        "textMode": "auto",
-        "wideLayout": true
-      },
-      "pluginVersion": "11.1.0-71516",
-      "targets": [
-        {
-          "azureMonitor": {
-            "aggregation": "Total",
-            "allowedTimeGrainsMs": [
-              60000,
-              300000,
-              900000,
-              1800000,
-              3600000,
-              21600000,
-              43200000,
-              86400000
-            ],
-            "dimensionFilters": [],
-            "metricName": "Ingress",
-            "metricNamespace": "microsoft.storage/storageaccounts",
-            "region": "eastus2",
-            "resources": [
-              {
-                "metricNamespace": "Microsoft.Storage/storageAccounts",
-                "region": "eastus2",
-                "resourceGroup": "RSGREU2APCSC01",
-                "resourceName": "staceu2apcsbackc01",
-                "subscription": "da57100c-1273-40e3-bc9c-1696bae04d4f"
-              }
-            ],
-            "timeGrain": "auto"
-          },
-          "datasource": {
-            "type": "grafana-azure-monitor-datasource",
-            "uid": "edgv7ueibpvr4f"
-          },
-          "queryType": "Azure Monitor",
-          "refId": "A",
-          "subscription": "da57100c-1273-40e3-bc9c-1696bae04d4f"
-        }
-      ],
-      "title": "Ingress",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "grafana-azure-monitor-datasource",
-        "uid": "edgv7ueibpvr4f"
-      },
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "continuous-GrYlRd"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "kbytes"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 3,
-        "x": 0,
-        "y": 25.5
-      },
-      "id": 49,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "percentChangeColorMode": "standard",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showPercentChange": false,
-        "textMode": "auto",
-        "wideLayout": true
-      },
-      "pluginVersion": "11.1.0-71516",
-      "targets": [
-        {
-          "azureMonitor": {
-            "aggregation": "Average",
-            "allowedTimeGrainsMs": [
-              60000,
-              300000,
-              900000,
-              1800000,
-              3600000,
-              21600000,
-              43200000,
-              86400000
-            ],
-            "dimensionFilters": [],
-            "metricName": "Availability",
-            "metricNamespace": "microsoft.storage/storageaccounts",
-            "region": "eastus2",
-            "resources": [
-              {
-                "metricNamespace": "Microsoft.Storage/storageAccounts",
-                "region": "eastus2",
-                "resourceGroup": "RSGREU2APCSC01",
-                "resourceName": "staceu2apcsbackc01",
-                "subscription": "da57100c-1273-40e3-bc9c-1696bae04d4f"
-              }
-            ],
-            "timeGrain": "auto"
-          },
-          "datasource": {
-            "type": "grafana-azure-monitor-datasource",
-            "uid": "edgv7ueibpvr4f"
-          },
-          "queryType": "Azure Monitor",
-          "refId": "A",
-          "subscription": "da57100c-1273-40e3-bc9c-1696bae04d4f"
-        }
-      ],
-      "title": "Availability",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "grafana-azure-monitor-datasource",
-        "uid": "edgv7ueibpvr4f"
-      },
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 8000000
-              }
-            ]
-          },
-          "unit": "deckbytes"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 3,
-        "x": 3,
-        "y": 25.5
-      },
-      "id": 50,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "percentChangeColorMode": "standard",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showPercentChange": false,
-        "textMode": "auto",
-        "wideLayout": true
-      },
-      "pluginVersion": "11.1.0-71516",
-      "targets": [
-        {
-          "azureMonitor": {
-            "aggregation": "Average",
-            "allowedTimeGrainsMs": [
-              60000,
-              300000,
-              900000,
-              1800000,
-              3600000,
-              21600000,
-              43200000,
-              86400000
-            ],
-            "dimensionFilters": [],
-            "metricName": "SuccessServerLatency",
-            "metricNamespace": "microsoft.storage/storageaccounts",
-            "region": "eastus2",
-            "resources": [
-              {
-                "metricNamespace": "Microsoft.Storage/storageAccounts",
-                "region": "eastus2",
-                "resourceGroup": "RSGREU2APCSC01",
-                "resourceName": "staceu2apcsbackc01",
-                "subscription": "da57100c-1273-40e3-bc9c-1696bae04d4f"
-              }
-            ],
-            "timeGrain": "auto"
-          },
-          "datasource": {
-            "type": "grafana-azure-monitor-datasource",
-            "uid": "edgv7ueibpvr4f"
-          },
-          "hide": false,
-          "queryType": "Azure Monitor",
-          "refId": "A",
-          "subscription": "da57100c-1273-40e3-bc9c-1696bae04d4f"
-        }
-      ],
-      "title": "Success Server Latency",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "grafana-azure-monitor-datasource",
-        "uid": "edgv7ueibpvr4f"
-      },
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "fixed"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "dark-orange",
-                "value": 30
-              },
-              {
-                "color": "dark-red",
-                "value": 50
-              }
-            ]
-          },
-          "unit": "percentunit"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 3,
-        "x": 6,
-        "y": 25.5
-      },
-      "id": 51,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "percentChangeColorMode": "standard",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showPercentChange": false,
-        "textMode": "auto",
-        "wideLayout": true
-      },
-      "pluginVersion": "11.1.0-71516",
-      "targets": [
-        {
-          "azureMonitor": {
-            "aggregation": "Total",
-            "allowedTimeGrainsMs": [
-              60000,
-              300000,
-              900000,
-              1800000,
-              3600000,
-              21600000,
-              43200000,
-              86400000
-            ],
-            "dimensionFilters": [],
-            "metricName": "Egress",
-            "metricNamespace": "microsoft.storage/storageaccounts",
-            "region": "eastus2",
-            "resources": [
-              {
-                "metricNamespace": "Microsoft.Storage/storageAccounts",
-                "region": "eastus2",
-                "resourceGroup": "RSGREU2APCSC01",
-                "resourceName": "staceu2apcsbackc01",
-                "subscription": "da57100c-1273-40e3-bc9c-1696bae04d4f"
-              }
-            ],
-            "timeGrain": "auto"
-          },
-          "datasource": {
-            "type": "grafana-azure-monitor-datasource",
-            "uid": "edgv7ueibpvr4f"
-          },
-          "hide": false,
-          "queryType": "Azure Monitor",
-          "refId": "A",
-          "subscription": "da57100c-1273-40e3-bc9c-1696bae04d4f"
-        }
-      ],
-      "title": "Egress",
-      "type": "stat"
     },
     {
       "datasource": {
@@ -3543,9 +4436,9 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 11,
-        "w": 9,
-        "x": 0,
+        "h": 8,
+        "w": 8,
+        "x": 16,
         "y": 29.5
       },
       "id": 37,
@@ -3601,11 +4494,7 @@
     }
   ],
   "schemaVersion": 39,
-  "tags": [
-    "azuremonitor",
-    "redis",
-    "sql"
-  ],
+  "tags": [],
   "templating": {
     "list": [
       {
@@ -3699,8 +4588,8 @@
       {
         "current": {
           "selected": false,
-          "text": "apcs",
-          "value": "apcs"
+          "text": "ntlc",
+          "value": "ntlc"
         },
         "datasource": {
           "type": "prometheus",
@@ -3726,8 +4615,8 @@
       {
         "current": {
           "selected": false,
-          "text": "Cloud Prometheus: apcs-cer-apcs_token",
-          "value": "eddl2t0twaosgd"
+          "text": "Cloud Prometheus: ntlc-cer-ntlc_token",
+          "value": "edfnnqy3q3nk0e"
         },
         "hide": 2,
         "includeAll": false,
@@ -3743,11 +4632,12 @@
     ]
   },
   "time": {
-    "from": "now-24h",
+    "from": "now-12h",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "browser",
   "title": "${dashboard_title}",
+  "uid": "${uid}",
   "weekStart": ""
 }

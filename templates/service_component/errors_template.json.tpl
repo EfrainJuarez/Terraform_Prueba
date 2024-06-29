@@ -18,7 +18,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 443,
+  "id": 1260,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -43,7 +43,7 @@
         "content": "<h1> $${job} </h1>",
         "mode": "html"
       },
-      "pluginVersion": "11.1.0-71799",
+      "pluginVersion": "11.2.0-72343",
       "targets": [
         {
           "datasource": {
@@ -77,10 +77,10 @@
           "showLineNumbers": false,
           "showMiniMap": false
         },
-        "content": "<h3><a href=\"https://bcpdesa.grafana.net/d/${uid_overview}/${overview_name}?orgId=1&var-job=$${job}&var-service=$${service}&var-namespace=$${namespace}\" style=\"color: #ffffff;\r\n    text-decoration: none;\">Overview</a></h3>",
+        "content": "<h3><a href=\"${grafana_url}/d/${overview_dashboard_uid}/${overview_dashboard_name}?orgId=1&var-job=$${job}&var-service=$${service}&var-namespace=$${namespace}&$${__url_time_range}\" style=\"color: #ffffff;\r\n    text-decoration: none;\">Overview</a></h3>",
         "mode": "markdown"
       },
-      "pluginVersion": "11.1.0-71799",
+      "pluginVersion": "11.2.0-72343",
       "transparent": true,
       "type": "text"
     },
@@ -102,10 +102,10 @@
           "showLineNumbers": false,
           "showMiniMap": false
         },
-        "content": "<h3><a href=\"https://bcpdesa.grafana.net/d/${traces_dashboard_uid}/${traces_dashboard_name}?orgId=1&var-job=$${job}&var-service=$${service}&var-namespace=$${namespace}\" style=\"color: #ffffff;\r\n    text-decoration: none;\">Traces</a></h3>",
+        "content": "<h3><a href=\"${grafana_url}/d/${traces_dashboard_uid}/${traces_dashboard_name}?orgId=1&var-job=$${job}&var-service=$${service}&var-namespace=$${namespace}&$${__url_time_range}\" style=\"color: #ffffff;\r\n    text-decoration: none;\">Traces</a></h3>",
         "mode": "html"
       },
-      "pluginVersion": "11.1.0-71799",
+      "pluginVersion": "11.2.0-72343",
       "transparent": true,
       "type": "text"
     },
@@ -127,10 +127,10 @@
           "showLineNumbers": false,
           "showMiniMap": false
         },
-        "content": "<h3><a href=\"https://bcpdesa.grafana.net/d/${logs_dashboard_uid}/${logs_dashboard_name}?orgId=1&var-job=$${job}&var-service=$${service}&var-namespace=$${namespace}\" style=\"color: #ffffff;\r\n    text-decoration: none;\">Logs</a></h3>",
+        "content": "<h3><a href=\"${grafana_url}/d/${logs_dashboard_uid}/${logs_dashboard_name}?orgId=1&var-job=$${job}&var-service=$${service}&var-namespace=$${namespace}&$${__url_time_range}\" style=\"color: #ffffff;\r\n    text-decoration: none;\">Logs</a></h3>",
         "mode": "markdown"
       },
-      "pluginVersion": "11.1.0-71799",
+      "pluginVersion": "11.2.0-72343",
       "transparent": true,
       "type": "text"
     },
@@ -152,10 +152,10 @@
           "showLineNumbers": false,
           "showMiniMap": false
         },
-        "content": "<h3><a href=\"https://bcpdesa.grafana.net/d/${servicemap_dashboard_uid}/${servicemap_dashboard_name}?orgId=1&var-job=$${job}&var-service=$${service}&var-namespace=$${namespace}\" style=\"color: #ffffff;\r\n    text-decoration: none;\">Service Map</a></h3>",
+        "content": "<h3><a href=\"${grafana_url}/d/${servicemap_dashboard_uid}/${servicemap_dashboard_name}?orgId=1&var-job=$${job}&var-service=$${service}&var-namespace=$${namespace}&$${__url_time_range}\" style=\"color: #ffffff;\r\n    text-decoration: none;\">Service Map</a></h3>",
         "mode": "markdown"
       },
-      "pluginVersion": "11.1.0-71799",
+      "pluginVersion": "11.2.0-72343",
       "transparent": true,
       "type": "text"
     },
@@ -177,10 +177,10 @@
           "showLineNumbers": false,
           "showMiniMap": false
         },
-        "content": "<h3><a href=\"https://bcpdesa.grafana.net/d/${jvm_dashboard_uid}/${jvm_dashboard_name}?orgId=1&var-job=$${job}&var-service=$${service}&var-namespace=$${namespace}\" style=\"color: #ffffff;\r\n    text-decoration: none;\">JVM</a></h3>",
+        "content": "<h3><a href=\"${grafana_url}/d/${jvm_dashboard_uid}/${jvm_dashboard_name}?orgId=1&var-job=$${job}&var-service=$${service}&var-namespace=$${namespace}&$${__url_time_range}\" style=\"color: #ffffff;\r\n    text-decoration: none;\">JVM</a></h3>",
         "mode": "markdown"
       },
-      "pluginVersion": "11.1.0-71799",
+      "pluginVersion": "11.2.0-72343",
       "transparent": true,
       "type": "text"
     },
@@ -205,7 +205,7 @@
         "content": "<h3 style=\"color: orange;\">Errors</h3>",
         "mode": "markdown"
       },
-      "pluginVersion": "11.1.0-71799",
+      "pluginVersion": "11.2.0-72343",
       "transparent": true,
       "type": "text"
     },
@@ -455,7 +455,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -472,7 +473,7 @@
         "x": 0,
         "y": 21
       },
-      "id": 21,
+      "id": 22,
       "links": [
         {
           "targetBlank": true,
@@ -493,7 +494,7 @@
         },
         "showHeader": true
       },
-      "pluginVersion": "11.1.0-69622",
+      "pluginVersion": "11.2.0-72343",
       "targets": [
         {
           "datasource": {
@@ -537,7 +538,6 @@
       "type": "table"
     }
   ],
-  "refresh": "",
   "schemaVersion": 39,
   "tags": [],
   "templating": {
@@ -545,8 +545,8 @@
       {
         "current": {
           "selected": false,
-          "text": "ageb/channel-ageb-account-transfer-v1",
-          "value": "ageb/channel-ageb-account-transfer-v1"
+          "text": "ciam/app-ciam-card-pin-v1",
+          "value": "ciam/app-ciam-card-pin-v1"
         },
         "datasource": {
           "type": "prometheus",
@@ -602,8 +602,8 @@
       {
         "current": {
           "selected": false,
-          "text": "ageb",
-          "value": "ageb"
+          "text": "ciam",
+          "value": "ciam"
         },
         "datasource": {
           "type": "prometheus",
@@ -629,8 +629,8 @@
       {
         "current": {
           "selected": false,
-          "text": "Cloud Prometheus: ageb-cer-ageb_token",
-          "value": "adfnehrm5v08wb"
+          "text": "Cloud Prometheus: ciam-cer-ciam_token",
+          "value": "edfnkmt7ndurka"
         },
         "hide": 2,
         "includeAll": false,
