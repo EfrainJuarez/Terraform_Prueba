@@ -2,8 +2,8 @@ import requests
 import json
 
 # Configuración de la petición
-grafana_url = ''  # Reemplaza con tu URL de Grafana
-api_key = ''  # Reemplaza con tu API key de Grafana
+grafana_url = 'https://bcpdesa.grafana.net/api/folders'  # Reemplaza con tu URL de Grafana
+api_key = 'glsa_DLF3ehKTFRhYgt3etYZCNyikGoD4ll5e_b5c196c7'  # Reemplaza con tu API key de Grafana
 
 # Headers de la petición
 headers = {

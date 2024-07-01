@@ -216,6 +216,10 @@
         "uid": "adddvqyrz3fggd"
     },
     {
+        "title": "MCOB",
+        "uid": "dde2mwn5vaio0d"
+    },
+    {
         "title": "NCCM",
         "uid": "adddvrjxr4npcf"
     },
@@ -252,8 +256,8 @@
         "uid": "cdhq622f67mkgd"
     },
     {
-        "title": "OPBK",
-        "uid": "dde2mwn5vaio0d"
+        "title": "Performance Testing (k6)",
+        "uid": "k6-app"
     },
     {
         "title": "PEVE",

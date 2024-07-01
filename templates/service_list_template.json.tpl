@@ -418,7 +418,7 @@
         "query": "prometheus",
         "queryValue": "",
         "refresh": 1,
-        "regex": "/^Cloud Prometheus: ciam/",
+        "regex": "/^Cloud Prometheus: ${datasource}/",
         "skipUrlSync": false,
         "type": "datasource"
       },

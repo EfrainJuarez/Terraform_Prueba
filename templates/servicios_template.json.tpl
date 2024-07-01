@@ -2856,7 +2856,7 @@
             "$__all"
           ]
         },
-        "description": "${uid}, ${folder}",
+        "description": "${datasource}, ${folder}",
         "hide": 2,
         "includeAll": true,
         "label": "Namespace",
@@ -2879,7 +2879,7 @@
             "value": "CIAM"
           }
         ],
-        "query": "${uid}, ${folder}",
+        "query": "${datasource}, ${folder}",
         "queryValue": "",
         "skipUrlSync": false,
         "type": "custom"

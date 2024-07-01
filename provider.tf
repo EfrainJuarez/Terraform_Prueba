@@ -10,20 +10,20 @@ terraform {
 variable "grafana_stack_url" {
   description = "The URL of the Grafana stack"
   type        = string
-  default     = ""
+  default     = "https://bcpdesa.grafana.net"
 }
 
 provider "grafana" {
   alias = "cloud"
   url   = var.grafana_stack_url
-  auth  = ""
+  auth  = "glsa_DLF3ehKTFRhYgt3etYZCNyikGoD4ll5e_b5c196c7"
 }
 
 # Define the list of folders you want to create in Grafana
 variable "folders" {
   description = "List of folders to create in Grafana"
   type        = list(string)
-  default     = ["DIWA"]
+  default     = ["MCOB"]
 }
 
 
