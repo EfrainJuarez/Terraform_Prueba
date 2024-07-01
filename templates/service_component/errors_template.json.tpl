@@ -478,7 +478,7 @@
         {
           "targetBlank": true,
           "title": "Ver en explore",
-          "url": "https://bcpcert.grafana.net/explore?schemaVersion=1&panes={\"axe\":{\"datasource\":\"grafanacloud-traces\",\"queries\":[{\"refId\":\"A\",\"datasource\":{\"type\":\"tempo\",\"uid\":\"grafanacloud-traces\"},\"queryType\":\"traceqlSearch\",\"limit\":1000,\"tableType\":\"traces\",\"filters\":[{\"id\":\"5082b271\",\"operator\":\"=\",\"scope\":\"span\"},{\"id\":\"service-name\",\"tag\":\"service.name\",\"operator\":\"=\",\"scope\":\"resource\",\"value\":[\"$service\"],\"valueType\":\"string\"},{\"id\":\"status\",\"tag\":\"status\",\"scope\":\"intrinsic\",\"operator\":\"=\",\"value\":\"error\",\"valueType\":\"keyword\"}],\"spss\":1000}],\"range\":{\"from\":\"$${__from}\",\"to\":\"$${__to}\"}}}&orgId=1"
+          "url": "{grafana_url}/explore?schemaVersion=1&panes={\"axe\":{\"datasource\":\"grafanacloud-traces\",\"queries\":[{\"refId\":\"A\",\"datasource\":{\"type\":\"tempo\",\"uid\":\"grafanacloud-traces\"},\"queryType\":\"traceqlSearch\",\"limit\":1000,\"tableType\":\"traces\",\"filters\":[{\"id\":\"5082b271\",\"operator\":\"=\",\"scope\":\"span\"},{\"id\":\"service-name\",\"tag\":\"service.name\",\"operator\":\"=\",\"scope\":\"resource\",\"value\":[\"$service\"],\"valueType\":\"string\"},{\"id\":\"status\",\"tag\":\"status\",\"scope\":\"intrinsic\",\"operator\":\"=\",\"value\":\"error\",\"valueType\":\"keyword\"}],\"spss\":1000}],\"range\":{\"from\":\"$${__from}\",\"to\":\"$${__to}\"}}}&orgId=1"
         }
       ],
       "options": {
